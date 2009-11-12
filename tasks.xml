@@ -16,9 +16,10 @@
                     function TaskList(){ return wave.getState().get('taskList', {});};
 
                     function addNew(newTask){                     
-                        alert("addNewCalled " + newTask.title);
+                        
                         list = TaskList();
                         list[newTask.taskId] = newTask;
+                        
                         wave.getState().submitDelta({'taskList': list});    
                     }
 
