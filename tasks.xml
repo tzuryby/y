@@ -41,7 +41,7 @@
                         }
                     };
 
-                    function addNewTaskHandler(){
+                    function XXXXX(){
                         var task = Task();
                         task.title = document.getElementById("newTaskTitle").value;
                         addNew(task);
@@ -65,7 +65,7 @@
             <hr />
             <div class=newTask">
                 <h3>Add New Task</h3>
-                <input type="text" id="newTaskTitle" value="type here" /> <a href="#" id="addNewLink" onclick="addNewTaskHandler()">Add</a>
+                <input type="text" id="newTaskTitle" value="type here" /> <input type="button" onClick="XXXXX()">Add</a>
             </div>
         ]]> 
     </Content>
