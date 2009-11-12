@@ -11,7 +11,7 @@
         var div = document.getElementById('content_div');
 
         function buttonClicked() {
-          var value = wave.getState().get('count', {a: 0});
+          var value = wave.getState().get('count') ||  {a: 0};
           value = parseInt(value.a);
           wave.getState().submitDelta({'count': {a:value}});
         }
