@@ -11,8 +11,8 @@
         var div = document.getElementById('content_div');
 
         function buttonClicked() {
-          var value = wave.getState().get('count', {});
-          wave.getState().submitDelta({'count': value + [value.length]});
+          var value = parseInt(wave.getState().get('count', {}));
+          wave.getState().submitDelta({'count': {a:1}});
         }
 
         function stateUpdated() {
@@ -20,12 +20,7 @@
             div.innerHTML = "The count is 0."
           }
           else {
-            var crap = '';
-            var counter =  wave.getState().get('count');
-            for (k in counter){
-                crap += ',' + counter [k];
-            }
-            div.innerHTML = "The count is " + counter;
+            div.innerHTML = wave.printJson(wave.getState().get('count'));
           } 
         }
 
@@ -44,6 +39,6 @@
         </script>
         <input type=button value="Click Me!" id="butCount" onClick="buttonClicked()">
         <input type=button value="Reset" id="butReset" onClick="resetCounter()">
-        ]]> 
+        ]]>  
     </Content>
 </Module>
