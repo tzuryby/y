@@ -11,8 +11,8 @@
         var div = document.getElementById('content_div');
 
         function buttonClicked() {
-          var value = parseInt(wave.getState().get('count', '0'));
-          wave.getState().submitDelta({'count': value + 1});
+          var value = wave.getState().get('count', [0]);
+          wave.getState().submitDelta({'count': value + [value.length]});
         }
 
         function stateUpdated() {
@@ -33,7 +33,7 @@
 
         // Reset value of "count" to 0
         function resetCounter(){
-          wave.getState().submitDelta({'count': '0'});
+          wave.getState().submitDelta({'count': [0]});
         }
 
         </script>
