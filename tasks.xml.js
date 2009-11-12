@@ -1,6 +1,4 @@
-window.tasklist = window.tasklist || {};
-tasklist = window.tasklist;
-
+tasklist = window.tasklist = {};
 tasklist.newId = function () { return wave.getState().get('lastTaskId', '1');};
 
 tasklist.Task = function() { return {'title': '', 'done': false, id: tasklist.newId()}; };
