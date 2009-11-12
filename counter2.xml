@@ -23,6 +23,7 @@
           }
           else {
             div.innerHTML = "The count is " + wave.getState().get('count');
+            div2.innerHTML = "The count is " + wave.getState().get('count');
           } 
         }
 
