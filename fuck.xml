@@ -11,7 +11,9 @@
         <script type='text/javascript'>
             (function () {
 
-                function updateDom(){}  
+                function updateDom(){
+                    alert("ASDSADAFFF");
+                }  
 
                 function init() {
                     if (!wave && !wave.isInWaveContainer()) { return; }
@@ -19,7 +21,12 @@
                     $(document).ready(function() {
                         wave.setStateCallback(updateDom);
                     });
-                    $("#fuck").click(function(){alert("SDASD");});
+                    $("#fuck").click(function(){
+                        var v = wave.getState().get('fuck', '0');
+                        v = parseInt(v);
+                        wave.getState().submitDelta({'fuck': v+1});
+                        alert(v);
+                    });
                 }
 
                 gadgets.util.registerOnLoadHandler(init);
