@@ -25,7 +25,7 @@
                         var v = wave.getState().get('fuck', '0');
                         v = parseInt(v);
                         wave.getState().submitDelta({'fuck': v+1});
-                        alert(v);
+                        $("#content_div").html(v);
                     });
                 }
 
