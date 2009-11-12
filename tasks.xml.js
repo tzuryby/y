@@ -8,11 +8,15 @@ tasklist.Task = function() { return {'title': '', 'done': false, id: tasklist.ne
 tasklist.Tasklist = function(){ return wave.getState().get('taskList', {});};
 
 tasklist.addNew = function (newTask){ 
-    tasklist.TaskList()[newTask.taskId] = newTask;
+    list = tasklist.TaskList()
+    list[newTask.taskId] = newTask;
+    wave.getState().submitDelta({'taskList': list});    
 };
 
 tasklist.Delete = function (taskId) { 
+    list = tasklist.TaskList()
     delete tasklist.TaskList()[taskId];
+    wave.getState().submitDelta({'taskList': list});    
 };
 
 tasklist.RenderList = function(){ 
