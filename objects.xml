@@ -12,6 +12,7 @@
 
         function buttonClicked() {
           var value = wave.getState().get('cunt') ||  "{a: 0}";
+          alert(value);
           value = eval("(" + value + ")");
           value = parseInt(value.a);
           wave.getState().submitDelta({'cunt': {a:value}});
