@@ -24,7 +24,7 @@
     function buttonClicked() {
       var value = parseInt(wave.getState().get('count', '0'));
       wave.getState().submitDelta({'count': value + 1});
-      setNewValue({Date(): Date()});
+      setNewValue({Date(): 1});
     }
 
     // Reset value of "count" to 0
@@ -36,6 +36,7 @@
     function stateUpdated() {
       if(!wave.getState().get('count')) {
         div.innerHTML = "The count is 0."
+        div2.innerHTML = "The count is 0."
       }
       else {
         div.innerHTML = "The count is " + wave.getState().get('count');
