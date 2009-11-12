@@ -1,4 +1,4 @@
-tasklist = window.tasklist = {};
+var tasklist = window.tasklist = {};
 
 tasklist.newId = function () { 
     lastId = wave.getState().get('lastTaskId', 0);
@@ -10,7 +10,7 @@ tasklist.Tasklist = function(){ return wave.getState().get('taskList', {});};
 
 tasklist.addNew = function (newTask){ 
     alert("addNewCalled");
-    list = tasklist.TaskList()
+    list = tasklist.TaskList();
     list[newTask.taskId] = newTask;
     wave.getState().submitDelta({'taskList': list});    
 };
