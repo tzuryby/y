@@ -35,12 +35,11 @@ var Delete = function (taskId) {
 var RenderList = function(){ 
     alert("RenderCalled");
     $.each(TaskList(), function(k,v){
-        var newNode = $(
+        $("#taskList").append(
             "<div class='task'>" 
             + v.title 
-            + "</div>"
+            + "</div>"        
         );
-        $("#taskList").append(newNode);
     });
 };
 
