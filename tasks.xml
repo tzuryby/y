@@ -16,7 +16,7 @@ var newId = function () {
 };
 
 var Task = function() { return {'title': '', 'done': 0, 'id': newId()}; };
-var Tasklist = function(){ return wave.getState().get('taskList', {});};
+var TaskList = function(){ return wave.getState().get('taskList', {});};
 
 var addNew = function (newTask){ 
     alert("addNewCalled");
