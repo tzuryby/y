@@ -12,9 +12,8 @@
             (function () {
 
                 function updateDom(){
-                    var v = wave.getState().get('fuck', '0');
+                    var v = GETSHIT();
                     v = parseInt(v);
-                    //wave.getState().submitDelta({'fuck': v+1});
                     $("#content_div").html(v);                    
                 }  
 
@@ -24,11 +23,15 @@
                     $(document).ready(function() {
                         wave.setStateCallback(updateDom);
                     });
+                    
+                    function GETSHIT(){
+                        wave.getState().get('fuck', '0');
+                    }
+                    
                     $("#fuck").click(function(){
-                        var v = wave.getState().get('fuck', '0');
+                        var v = GETSHIT();
                         v = parseInt(v);
                         wave.getState().submitDelta({'fuck': v+1});
-                        //$("#content_div").html(v);
                     });
                 }
 
