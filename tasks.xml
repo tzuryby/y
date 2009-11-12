@@ -42,22 +42,21 @@
                         });
                     };
 
-
-                    function addNewTaskHandler(){    
+                    $("#addNewLink").click(function(){                    
                         var task = Task();
                         task.title = $("#newTaskTitle").val();
                         addNew(task);
-                        return false();
-                    }
-                    $("#addNewLink").click(addNewTaskHandler);
+                    });
 
                     function init() {
-                      if (wave && wave.isInWaveContainer()) {
-                        wave.setStateCallback(RenderList);
-                      }
-                      else {
-                        alert ("wave is not initialized");
-                      }
+                        $(function() {
+                            if (wave && wave.isInWaveContainer()) {
+                                wave.setStateCallback(RenderList);
+                            }
+                            else {
+                                alert ("wave is not initialized");
+                            }
+                        });
                     }
                                     /*  wave initialisation and registration  */
                                     gadgets.util.registerOnLoadHandler(init);
