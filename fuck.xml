@@ -22,13 +22,13 @@
                     return wave.getState().get('fuck', '0');
                 }
                 
-                function getStateInt(){
-                    alert(wave.getState().toString());                
+                function getStateInt(){                    
                     return parseInt(getGadgetState());
                 }
                 
                 function updateDom(){
-                    $("#content_div").html(getStateInt());                    
+                    $("#content_div").html(getStateInt());    
+                    alert(wave.getState().toString());                                    
                 }  
 
                 function init() {
@@ -39,8 +39,8 @@
                     });
                     
                     $("#fuck").click(function(){
-                        wave.getState().submitDelta({'fuck': getStateInt()+1});
                         _set();
+                        wave.getState().submitDelta({'fuck': getStateInt()+1});
                     });
                 }
 
