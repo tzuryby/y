@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title="Fuck">
+        <Require feature="wave"/> 
+        <Require feature="dynamic-height"/>
+    </ModulePrefs>
+	<Content type="html">
+        <![CDATA[ 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script type='text/javascript'>
+            (function () {
+
+                function increment(){
+                    vat v = getState();
+                    v+= 1;
+                    setState(v);
+                }
+                
+                function getState(){
+                    var v = wave.getState().get('fuck', '0');
+                    v = parseInt(v);
+                    return v;
+                }
+                
+                function setState(v){
+                    wave.getState().submitDelta({'fuck': v});
+                }
+                
+                function updateDom(){
+                    var v = getState();
+                    $('#content_div').html(v); 
+                }
+                
+
+                function init() {
+                if (!wave && !wave.isInWaveContainer()) { return; }
+                    $(document).ready(function() {
+                        wave.setStateCallback(updateDom);
+                    });
+                }
+
+                gadgets.util.registerOnLoadHandler(init);
+
+            })();
+        </script>
+        <div id="test" style="height: 500px;"></div>
+        ]]>
+    </Content>
+</Module>
