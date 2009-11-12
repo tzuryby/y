@@ -11,6 +11,13 @@
         <script type='text/javascript'>
             (function () {
                 
+                function _get(){
+                  return eval("(" + wave.getState().get('fuckmehard', '{}') + ")");
+                }
+                function _set(){
+                    wave.getState().submitDelta({'fuckmehard': {current: Date()}});
+                }
+                
                 function getGadgetState(){
                     return wave.getState().get('fuck', '0');
                 }
