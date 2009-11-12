@@ -33,7 +33,7 @@
 
         // Reset value of "count" to 0
         function resetCounter(){
-          wave.getState().submitDelta({'count': [0]});
+          wave.getState().submitDelta({'count': undefined});
         }
 
         </script>
