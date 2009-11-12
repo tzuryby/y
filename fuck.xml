@@ -16,8 +16,8 @@
                 }
                 
                 function getStateInt(){
+                    alert(getGadgetState().toString());                
                     return parseInt(getGadgetState());
-                    alert(getGadgetState().toString());
                 }
                 
                 function updateDom(){
