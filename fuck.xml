@@ -39,13 +39,14 @@
                     $(document).ready(function() {
                         wave.setStateCallback(updateDom);
                     });
+                    $("#fuck").click(function(){increment();});
                 }
 
                 gadgets.util.registerOnLoadHandler(init);
 
             })();
         </script>
-        <input type="button" value="+" />
+        <input id="fuck" type="button" value="+" />
         ]]>
     </Content>
 </Module>
