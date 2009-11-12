@@ -34,7 +34,7 @@ var Delete = function (taskId) {
 
 var RenderList = function(){ 
     alert("RenderCalled");
-    $.each(Tasklist(), function(k,v){
+    $.each(TaskList(), function(k,v){
         var newNode = $(
             "<div class='task'>" 
             + v.title 
