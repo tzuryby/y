@@ -43,4 +43,7 @@ function init() {
   if (wave && wave.isInWaveContainer()) {
     wave.setStateCallback(tasklist.RenderList);
   }
+  else {
+    alert ("wave is not initialized");
+  }
 }
