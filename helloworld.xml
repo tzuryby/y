@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="Hello Wave">
+        <!-- <Require feature="rpc"/> -->
+        <Require feature="wave" />
+        <Require feature="dynamic-height" />
+        <Require feature="locked-domain" />        
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
+            <script type="text/javascript" src="http://wave-api.appspot.com/public/wave.js"></script>
+            Hello, Wave!
+        ]]>
+    </Content>
+</Module>
