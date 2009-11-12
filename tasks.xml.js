@@ -11,6 +11,7 @@ tasklist.addNew = function (newTask){
     list = tasklist.TaskList()
     list[newTask.taskId] = newTask;
     wave.getState().submitDelta({'taskList': list});    
+    alert("addNewCalled");
 };
 
 tasklist.Delete = function (taskId) { 
