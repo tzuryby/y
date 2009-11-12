@@ -45,7 +45,7 @@
                         var task = Task();
                         task.title = document.getElementById("newTaskTitle").value;
                         addNew(task);
-                    });
+                    };
 
                     function init() {                        
                         if (wave && wave.isInWaveContainer()) {
