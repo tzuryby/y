@@ -13,14 +13,14 @@
         function buttonClicked() {
           var value = wave.getState().get('cunt') ||  "{a: 0}";
           alert(value);
-          value = eval("(" + value + ")");
-          value = value.a+1;
-          wave.getState().submitDelta({'cunt': {a:value}});
-          alert(wave.getState().toString());
+          //value = eval("(" + value + ")");
+          //value = value.a+1;
+          //wave.getState().submitDelta({'cunt': {a:value}});
+          //alert(wave.getState().toString());
         }
 
         function stateUpdated() {
-          alert(wave.getState().toString());
+          alert(wave.getState().get('cunt').toString());
           state = wave.getState().get('cunt');
           state = eval("(" + state + ")");
           if(!(state || state.a)) {
