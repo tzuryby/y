@@ -12,7 +12,9 @@
 
         function buttonClicked() {
           var value = parseInt(wave.getState().get('count', {}));
-          wave.getState().submitDelta({'count': {a:1}});
+          value[Date()] = Date()
+          
+          wave.getState().submitDelta({'count': value});
         }
 
         function stateUpdated() {
