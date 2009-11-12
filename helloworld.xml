@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-    <ModulePrefs title="Hello Wave">
+    <ModulePrefs title="Hello Wave"  height="50">
         <!-- <Require feature="rpc"/> -->
         <Require feature="wave" />
         <!-- <Require feature="dynamic-height" /> -->
