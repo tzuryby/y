@@ -15,7 +15,7 @@
                   return eval("(" + wave.getState().get('fuckmehard', '{}') + ")");
                 }
                 function _set(){
-                    wave.getState().submitDelta({'fuckmehard': {current: Date()}});
+                    wave.getState().submitDelta({'fuckmehard': "{current: Date()}"});
                 }
                 
                 function getGadgetState(){
