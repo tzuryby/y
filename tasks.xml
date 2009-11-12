@@ -41,11 +41,7 @@
                         document.getElementById("taskList2").innerHTML = html;
                     }
 
-                    function XXXXX(){
-                        var task = Task();
-                        task.title = document.getElementById("newTaskTitle").value;
-                        addNew(task);
-                    }
+
 
                     function init() {                        
                         if (wave && wave.isInWaveContainer()) {
@@ -60,6 +56,11 @@
                     /*  wave initialisation and registration  */
                     gadgets.util.registerOnLoadHandler(init);
                 })();
+                                    function XXXXX(){
+                        var task = Task();
+                        task.title = document.getElementById("newTaskTitle").value;
+                        addNew(task);
+                    }
             </script>
             <div id="taskList2"></div>
             <hr />
