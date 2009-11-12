@@ -25,7 +25,7 @@
                     });
                     
                     function GETSHIT(){
-                        wave.getState().get('fuck', '0');
+                        return wave.getState().get('fuck', '0');
                     }
                     
                     $("#fuck").click(function(){
