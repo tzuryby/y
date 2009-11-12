@@ -6,12 +6,11 @@
     <Content type="html">
         <![CDATA[
             <script type="text/javascript">
-                (function(){
 
                     function newId() { 
                         lastId = wave.getState().get('lastTaskId', 0);
                         return lastId+1;
-                    };
+                    }
 
                     function Task() { return {'title': '', 'done': 0, 'id': newId()}; };
                     function TaskList(){ return wave.getState().get('taskList', {});};
@@ -55,8 +54,8 @@
                     
                     /*  wave initialisation and registration  */
                     gadgets.util.registerOnLoadHandler(init);
-                })();
-                                    function XXXXX(){
+                
+                    function XXXXX(){
                         var task = Task();
                         task.title = document.getElementById("newTaskTitle").value;
                         addNew(task);
