@@ -10,14 +10,12 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <script type='text/javascript'>
             (function () {
-                    function GETSHIT(){
-                        return wave.getState().get('fuck', '0');
-                    }
-                    
+                function getState(){
+                    return parseInt(wave.getState().get('fuck', '0'));
+                }
+                
                 function updateDom(){
-                    var v = GETSHIT();
-                    v = parseInt(v);
-                    $("#content_div").html(v);                    
+                    $("#content_div").html(getState());                    
                 }  
 
                 function init() {
@@ -27,11 +25,8 @@
                         wave.setStateCallback(updateDom);
                     });
                     
-
                     $("#fuck").click(function(){
-                        var v = GETSHIT();
-                        v = parseInt(v);
-                        wave.getState().submitDelta({'fuck': v+1});
+                        wave.getState().submitDelta({'fuck': getState()+1});
                     });
                 }
 
