@@ -1,8 +1,11 @@
 tasklist = window.tasklist = {};
-tasklist.newId = function () { return wave.getState().get('lastTaskId', '1');};
 
-tasklist.Task = function() { return {'title': '', 'done': false, id: tasklist.newId()}; };
+tasklist.newId = function () { 
+    lastId = wave.getState().get('lastTaskId', 0);
+    return lastId+1;
+};
 
+tasklist.Task = function() { return {'title': '', 'done': 0, 'id': tasklist.newId()}; };
 tasklist.Tasklist = function(){ return wave.getState().get('taskList', {});};
 
 tasklist.addNew = function (newTask){ 
@@ -16,7 +19,7 @@ tasklist.Delete = function (taskId) {
     alert("DeleteCalled");
     list = tasklist.TaskList()
     delete tasklist.TaskList()[taskId];
-    wave.getState().submitDelta({'taskList': list});    
+    wave.getState().submitDelta({'taskList': list});
 };
 
 tasklist.RenderList = function(){ 
@@ -31,11 +34,11 @@ tasklist.RenderList = function(){
     });
 };
 
-function addNewTaskHandler(){
-    alert(".click called");
-    var task = tasklist.newTask();
+function addNewTaskHandler(){    
+    var task = tasklist.Task();
     task.title = $("#newTaskTitle").val();
     tasklist.addNew(task);
+    alert(".click called");
 }
 //$("#addNewLink").click(addNewTaskHandler);
 
