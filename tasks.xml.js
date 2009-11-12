@@ -8,21 +8,22 @@ tasklist.Task = function() { return {'title': '', 'done': false, id: tasklist.ne
 tasklist.Tasklist = function(){ return wave.getState().get('taskList', {});};
 
 tasklist.addNew = function (newTask){ 
+    alert("addNewCalled");
     list = tasklist.TaskList()
     list[newTask.taskId] = newTask;
     wave.getState().submitDelta({'taskList': list});    
-    alert("addNewCalled");
 };
 
 tasklist.Delete = function (taskId) { 
+    alert("DeleteCalled");
     list = tasklist.TaskList()
     delete tasklist.TaskList()[taskId];
     wave.getState().submitDelta({'taskList': list});    
 };
 
 tasklist.RenderList = function(){ 
-
-    $.each(tasklist.GetWaveState, function(k,v){
+    alert("RenderCalled");
+    $.each(tasklist.Tasklist(), function(k,v){
         var newNode = $(
             "<div class='task'>" 
             + v.title 
@@ -34,8 +35,9 @@ tasklist.RenderList = function(){
 
 
 $("#addNewLink").click(function(){
+    alert(".click called");
     var task = tasklist.newTask();
-    task.title = $("#newTaskTitle").val()
+    task.title = $("#newTaskTitle").val();
     tasklist.addNew(task);
 });
 
