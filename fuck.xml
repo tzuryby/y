@@ -13,22 +13,26 @@
 
                 function increment(){
                     vat v = getState();
+                    alert(v);
                     v+= 1;
                     setState(v);
                 }
                 
                 function getState(){
                     var v = wave.getState().get('fuck', '0');
+                    alert (v);
                     v = parseInt(v);
                     return v;
                 }
                 
                 function setState(v){
+                    alert (v);
                     wave.getState().submitDelta({'fuck': v});
                 }
                 
                 function updateDom(){
                     var v = getState();
+                    alert (v);
                     $('#content_div').html(v); 
                 }
                 
@@ -39,7 +43,7 @@
                     $(document).ready(function() {
                         wave.setStateCallback(updateDom);
                     });
-                    $("#fuck").click(function(){increment();});
+                    $("#fuck").click(increment);
                 }
 
                 gadgets.util.registerOnLoadHandler(init);
