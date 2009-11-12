@@ -12,9 +12,14 @@
         var div = document.getElementById('content_div');
         var div2 = document.getElementById('content_div2');
 
+        funciton a(){
+            return wave.getState().get('FOO');
+        }
+        
         function buttonClicked() {
           var value = parseInt(wave.getState().get('count', '0'));
           wave.getState().submitDelta({'count': value + 1});
+          //wave.getState().submitDelta({'count': value + 1});
         }
 
         function stateUpdated() {
@@ -23,7 +28,7 @@
           }
           else {
             div.innerHTML = "The count is " + wave.getState().get('count');
-            div2.innerHTML = "The count is " + wave.getState().get('count');
+            div2.innerHTML = "The count is " + a();
           } 
         }
 
