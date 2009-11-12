@@ -33,13 +33,13 @@ tasklist.RenderList = function(){
     });
 };
 
-
-$("#addNewLink").click(function(){
+function addNewTaskHandler(){
     alert(".click called");
     var task = tasklist.newTask();
     task.title = $("#newTaskTitle").val();
     tasklist.addNew(task);
-});
+}
+//$("#addNewLink").click(addNewTaskHandler);
 
 function init() {
   if (wave && wave.isInWaveContainer()) {
