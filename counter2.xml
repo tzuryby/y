@@ -11,19 +11,15 @@
         var div = document.getElementById('content_div');
 
         function buttonClicked() {
-          var value = parseInt(wave.getState().get('count', {}));
+          var value = parseInt(wave.getState().get('count', {a:1}));
           value[Date()] = Date()
           
           wave.getState().submitDelta({'count': value});
         }
 
         function stateUpdated() {
-          if(!wave.getState().get('count')) {
-            div.innerHTML = "The count is 0."
-          }
-          else {
-            div.innerHTML = wave.printJson(wave.getState().get('count'));
-          } 
+          var t = wave.getState().get('count');
+          div.innerHTML = wave.printJson(t);
         }
 
         function init() {
@@ -35,7 +31,7 @@
 
         // Reset value of "count" to 0
         function resetCounter(){
-          wave.getState().submitDelta({'count': {}});
+          wave.getState().submitDelta({'count': {a:1}});
         }
 
         </script>
