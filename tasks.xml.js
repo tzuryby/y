@@ -34,19 +34,19 @@
     //~ });
 //~ };
 
-function addNewTaskHandler(){    
-    var task = tasklist.Task();
-    task.title = $("#newTaskTitle").val();
-    tasklist.addNew(task);
-    alert(".click called");
-}
-//$("#addNewLink").click(addNewTaskHandler);
+//~ function addNewTaskHandler(){    
+    //~ var task = tasklist.Task();
+    //~ task.title = $("#newTaskTitle").val();
+    //~ tasklist.addNew(task);
+    //~ alert(".click called");
+//~ }
+//~ //$("#addNewLink").click(addNewTaskHandler);
 
-function init() {
-  if (wave && wave.isInWaveContainer()) {
-    wave.setStateCallback(tasklist.RenderList);
-  }
-  else {
-    alert ("wave is not initialized");
-  }
-}
+//~ function init() {
+  //~ if (wave && wave.isInWaveContainer()) {
+    //~ wave.setStateCallback(tasklist.RenderList);
+  //~ }
+  //~ else {
+    //~ alert ("wave is not initialized");
+  //~ }
+//~ }

@@ -8,33 +8,33 @@
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>            
             <script src="http://github.com/tzuryby/y/raw/master/tasks.xml.js" type="text/javascript"></script>            
             <script type="text/javascript">
-var tasklist = window.tasklist = {};
+//var tasklist = window.tasklist = {};
 
-tasklist.newId = function () { 
+var newId = function () { 
     lastId = wave.getState().get('lastTaskId', 0);
     return lastId+1;
 };
 
-tasklist.Task = function() { return {'title': '', 'done': 0, 'id': tasklist.newId()}; };
-tasklist.Tasklist = function(){ return wave.getState().get('taskList', {});};
+var Task = function() { return {'title': '', 'done': 0, 'id': newId()}; };
+var Tasklist = function(){ return wave.getState().get('taskList', {});};
 
-tasklist.addNew = function (newTask){ 
+var addNew = function (newTask){ 
     alert("addNewCalled");
-    list = tasklist.TaskList();
+    list = TaskList();
     list[newTask.taskId] = newTask;
     wave.getState().submitDelta({'taskList': list});    
 };
 
-tasklist.Delete = function (taskId) { 
+var Delete = function (taskId) { 
     alert("DeleteCalled");
-    list = tasklist.TaskList()
-    delete tasklist.TaskList()[taskId];
+    list = TaskList()
+    delete TaskList()[taskId];
     wave.getState().submitDelta({'taskList': list});
 };
 
-tasklist.RenderList = function(){ 
+var RenderList = function(){ 
     alert("RenderCalled");
-    $.each(tasklist.Tasklist(), function(k,v){
+    $.each(Tasklist(), function(k,v){
         var newNode = $(
             "<div class='task'>" 
             + v.title 
@@ -43,9 +43,26 @@ tasklist.RenderList = function(){
         $("#taskList").append(newNode);
     });
 };
-            
+
+
+function addNewTaskHandler(){    
+    var task = Task();
+    task.title = $("#newTaskTitle").val();
+    addNew(task);
+    alert(".click called");
+}
+//$("#addNewLink").click(addNewTaskHandler);
+
+function init() {
+  if (wave && wave.isInWaveContainer()) {
+    wave.setStateCallback(RenderList);
+  }
+  else {
+    alert ("wave is not initialized");
+  }
+}
                 /*  wave initialisation and registration  */
-                gadgets.util.registerOnLoadHandler(window.tasklist.init);
+                gadgets.util.registerOnLoadHandler(init);
 
             </script>
             <div id="taskList"></div>
