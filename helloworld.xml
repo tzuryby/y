@@ -3,7 +3,7 @@
     <ModulePrefs title="Hello Wave">
         <!-- <Require feature="rpc"/> -->
         <Require feature="wave" />
-        <Require feature="dynamic-height" />
+        <!-- <Require feature="dynamic-height" /> -->
         <Require feature="locked-domain" />        
     </ModulePrefs>
     <Content type="html">
