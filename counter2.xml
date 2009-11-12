@@ -1,42 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-    <ModulePrefs title="State Example" height="120">
-        <Require feature="wave" /> 
-    </ModulePrefs>
-    <Content type="html">
-        <![CDATA[ 
-        <div id="content_div" style="height: 50px;"></div>
-        <script type="text/javascript">
+<ModulePrefs title="State Example" height="120">
+    <Require feature="wave" /> 
+  </ModulePrefs>
+<Content type="html">
+<![CDATA[ 
+<div id="content_div" style="height: 50px;"></div>
+<div id="content_div2" style="height: 50px;"></div>
+  
+    <script type="text/javascript">
+    
+    var div = document.getElementById('content_div');
+    var div2 = document.getElementById('content_div2');
+    
+    function getNewValue(){
+        return wave.getState().get('newvalue');
+    }
+    
+    function setNewValue(obj){
+        wave.getState().submitDelta({'newvalue': obj});
+    }
+    
+    function buttonClicked() {
+      var value = parseInt(wave.getState().get('count', '0'));
+      wave.getState().submitDelta({'count': value + 1});
+      setNewValue({Date(): Date()});
+    }
 
-        var div = document.getElementById('content_div');
+    // Reset value of "count" to 0
+    function resetCounter(){
+      wave.getState().submitDelta({'count': '0'});
+      wave.log("I just reset the count to zero.");
+    }
 
-        function buttonClicked() {
-          var value = parseInt(wave.getState().get('count', {a:1}));
-          value[Date()] = Date()
-          
-          wave.getState().submitDelta({'count': value});
-        }
+    function stateUpdated() {
+      if(!wave.getState().get('count')) {
+        div.innerHTML = "The count is 0."
+      }
+      else {
+        div.innerHTML = "The count is " + wave.getState().get('count');
+        div2.innerHTML = wave.printJson(getNewValue());
+      } 
+    }
+ 
+    function init() {
+      if (wave && wave.isInWaveContainer()) {
+        wave.setStateCallback(stateUpdated);
+      }
+    }
+    gadgets.util.registerOnLoadHandler(init);
 
-        function stateUpdated() {
-          var t = wave.getState().get('count');
-          div.innerHTML = wave.printJson(t);
-        }
-
-        function init() {
-          if (wave && wave.isInWaveContainer()) {
-            wave.setStateCallback(stateUpdated);
-          }
-        }
-        gadgets.util.registerOnLoadHandler(init);
-
-        // Reset value of "count" to 0
-        function resetCounter(){
-          wave.getState().submitDelta({'count': {a:1}});
-        }
-
-        </script>
-        <input type=button value="Click Me!" id="butCount" onClick="buttonClicked()">
-        <input type=button value="Reset" id="butReset" onClick="resetCounter()">
-        ]]>  
-    </Content>
-</Module>
+    </script>
+    <input type=button value="Click Me!" id="butCount" onClick="buttonClicked()">
+    <input type=button value="Reset" id="butReset" onClick="resetCounter()">
+  ]]> 
+  </Content>
