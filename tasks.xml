@@ -35,7 +35,7 @@ var Delete = function (taskId) {
 var RenderList = function(){ 
     alert("RenderCalled");
     $.each(TaskList(), function(k,v){
-        $("#taskList").append(
+        $("#taskList2").append(
             "<div class='task'>" 
             + v.title 
             + "</div>"        
@@ -64,7 +64,7 @@ function init() {
                 gadgets.util.registerOnLoadHandler(init);
 
             </script>
-            <div id="taskList"></div>
+            <div id="taskList2"></div>
             <hr />
             <div class=newTask">
                 <h3>Add New Task</h3>
