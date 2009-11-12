@@ -1,8 +1,9 @@
 window.tasklist = window.tasklist || {};
 tasklist = window.tasklist;
 
-tasklist.Task = function() { return {'title': '', 'done': false}; };
 tasklist.newId = function () { return wave.getState().get('lastTaskId', '1');};
+
+tasklist.Task = function() { return {'title': '', 'done': false, id: tasklist.newId()}; };
 
 tasklist.Tasklist = function(){ return wave.getState().get('taskList', {});};
 
@@ -26,6 +27,12 @@ tasklist.RenderList = function(){
     });
 };
 
+
+$("#addNewLink").click(function(){
+    var task = tasklist.newTask();
+    task.title = $("#newTaskTitle").val()
+    tasklist.addNew(task);
+});
 
 function init() {
   if (wave && wave.isInWaveContainer()) {

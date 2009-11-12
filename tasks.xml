@@ -13,6 +13,10 @@
 
             </script>
             <div id="taskList"></div>
+            <hr />
+            <div class=newTask">
+                <input type="text" id="newTaskTitle" value="add new task" /> <a href="#" id="addNewLink">Add</a>
+            </div>
         ]]> 
     </Content>
 </Module>
