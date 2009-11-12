@@ -25,7 +25,7 @@
                     }
                     
                     function setState(v){
-                        wave.getState().submitDelta({'cunt': v});
+                        wave.getState().submitDelta({'fuck': v});
                     }
                     
                     function updateDom(){
