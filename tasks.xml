@@ -21,31 +21,31 @@
                         list = TaskList();
                         list[newTask.taskId] = newTask;
                         wave.getState().submitDelta({'taskList': list});    
-                    };
+                    }
 
                     function Delete(taskId) { 
                         alert("DeleteCalled");
                         list = TaskList()
                         delete TaskList()[taskId];
                         wave.getState().submitDelta({'taskList': list});
-                    };
+                    }
 
                     function RenderList(){ 
                         alert("RenderCalled");
                         list = TaskList();
-                        for (k in list){
-                            html = document.getElementById("taskList2").innerHTML + "";
+                        html = document.getElementById("taskList2").innerHTML + "";
+                        for (k in list){                            
                             v = list[k];
-                            html += "<div class='task'>"  + v.title + "</div>"     
-                            document.getElementById("taskList2").innerHTML = html;
+                            html += "<div class='task'>"  + v.title + "</div>"                                 
                         }
-                    };
+                        document.getElementById("taskList2").innerHTML = html;
+                    }
 
                     function XXXXX(){
                         var task = Task();
                         task.title = document.getElementById("newTaskTitle").value;
                         addNew(task);
-                    };
+                    }
 
                     function init() {                        
                         if (wave && wave.isInWaveContainer()) {
@@ -59,7 +59,7 @@
                     
                     /*  wave initialisation and registration  */
                     gadgets.util.registerOnLoadHandler(init);
-                    })();
+                })();
             </script>
             <div id="taskList2"></div>
             <hr />
