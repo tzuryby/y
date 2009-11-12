@@ -13,20 +13,10 @@
     var div = document.getElementById('content_div');
     
     var div2 = document.getElementById('content_div2');
-    /*
-    function getNewValue(){
-        return wave.getState().get('newvalue', 0);
-    }
-    
-    function setNewValue(obj){
-        wave.getState().submitDelta({'newvalue': obj});
-    }
-    */
     
     function buttonClicked() {
       var value = parseInt(wave.getState().get('count', '0'));
       wave.getState().submitDelta({'count': value + 1});
-      //setNewValue({Date(): 1});
     }
 
     // Reset value of "count" to 0
@@ -42,7 +32,7 @@
       }
       else {
         div.innerHTML = "The count is " + wave.getState().get('count');
-        div2.innerHTML = wave.printJson({a: Date()});
+        div2.innerHTML = "HELLO"
       } 
     }
  
