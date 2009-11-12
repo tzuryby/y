@@ -10,6 +10,7 @@
         <script type="text/javascript">
 
         var div = document.getElementById('content_div');
+        var div2 = document.getElementById('content_div2');
 
         function buttonClicked() {
           var value = parseInt(wave.getState().get('count', '0'));
