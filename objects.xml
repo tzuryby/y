@@ -11,16 +11,20 @@
         var div = document.getElementById('content_div');
 
         function buttonClicked() {
-          var value = wave.getState().get('count', 0);
-          wave.getState().submitDelta({'count': parseInt(value) + 1});
+          var value = wave.getState().get('count', {a: 0});
+          value = parseInt(value.a);
+          wave.getState().submitDelta({'count': {a:value}});
         }
 
         function stateUpdated() {
-          if(!wave.getState().get('count')) {
+          state = wave.getState().get('count');
+          
+          if(!(state || state.a)) {
             div.innerHTML = "The count is 0."
           }
           else {
-            div.innerHTML = "The count is " + wave.getState().get('count');
+            
+            div.innerHTML = "The count is " state.a;
           } 
         }
 
@@ -33,7 +37,7 @@
 
         // Reset value of "count" to 0
         function resetCounter(){
-          wave.getState().submitDelta({'count': 0});
+          wave.getState().submitDelta({'count': {a: 0}});
         }
 
         </script>
