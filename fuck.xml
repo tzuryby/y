@@ -12,7 +12,10 @@
             (function () {
 
                 function updateDom(){
-                    alert("ASDSADAFFF");
+                    var v = wave.getState().get('fuck', '0');
+                    v = parseInt(v);
+                    //wave.getState().submitDelta({'fuck': v+1});
+                    $("#content_div").html(v);                    
                 }  
 
                 function init() {
@@ -25,7 +28,7 @@
                         var v = wave.getState().get('fuck', '0');
                         v = parseInt(v);
                         wave.getState().submitDelta({'fuck': v+1});
-                        $("#content_div").html(v);
+                        //$("#content_div").html(v);
                     });
                 }
 
