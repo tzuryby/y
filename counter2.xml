@@ -11,20 +11,22 @@
     <script type="text/javascript">
     
     var div = document.getElementById('content_div');
-    var div2 = document.getElementById('content_div2');
     
+    var div2 = document.getElementById('content_div2');
+    /*
     function getNewValue(){
-        return wave.getState().get('newvalue');
+        return wave.getState().get('newvalue', 0);
     }
     
     function setNewValue(obj){
         wave.getState().submitDelta({'newvalue': obj});
     }
+    */
     
     function buttonClicked() {
       var value = parseInt(wave.getState().get('count', '0'));
       wave.getState().submitDelta({'count': value + 1});
-      setNewValue({Date(): 1});
+      //setNewValue({Date(): 1});
     }
 
     // Reset value of "count" to 0
@@ -35,12 +37,12 @@
 
     function stateUpdated() {
       if(!wave.getState().get('count')) {
-        div.innerHTML = "The count is 0."
-        div2.innerHTML = "The count is 0."
+        div.innerHTML = "The count is 0.";
+        div2.innerHTML = "The count is 0.";
       }
       else {
         div.innerHTML = "The count is " + wave.getState().get('count');
-        div2.innerHTML = wave.printJson(getNewValue());
+        div2.innerHTML = wave.printJson({a: Date()});
       } 
     }
  
