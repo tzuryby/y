@@ -11,6 +11,7 @@
         
     function updateDom(){
         current = wave.getState().get("tasks", '{a:1}');
+        alert(current);
         current = (current && $.json.parse(current)) || {};
         for (i in tasks) alert(i);
     }  
