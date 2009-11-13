@@ -30,9 +30,9 @@
             alert("sdAF");
             tasks = [];
             $("div.listItem").each(function(){
-                tasks.append({title: this.html());
+                tasks.append({title: this.html()});
             });
-            tasks.append({title: $("#newTaskTitle").val());
+            tasks.append({title: $("#newTaskTitle").val()});
             wave.getState().submitDelta({'fuck': $.json.stringify(tasks)});
         });
     }
