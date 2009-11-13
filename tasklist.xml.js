@@ -19,6 +19,7 @@
         },
         set: function (tasks){
             tasks = $.json.stringify(tasks);
+            alert(tasks);
             waveState.setValue('FUCK', tasks);
         },
         add: function (task){
