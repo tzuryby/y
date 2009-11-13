@@ -6,6 +6,7 @@
         },
         
         setValue: function (k, v){
+            alert (k + ':' + v);
             wave.getState().submitDelta(k, v);
         }
     };
