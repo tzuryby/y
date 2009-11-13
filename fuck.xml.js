@@ -17,7 +17,7 @@
     
     function updateDom(){
         $("#content_div").html(getStateInt());    
-        alert(wave.getState().toString());                                    
+        //alert(wave.getState().toString());                                    
     }  
 
     function init() {
@@ -28,6 +28,7 @@
         });
         
         $("#fuck").click(function(){
+            alert(wave.getState().toString());
             _set();
             wave.getState().submitDelta({'fuck': getStateInt()+1});
         });
