@@ -6,8 +6,6 @@
         },
         
         setValue: function (k, v){
-            alert(k);
-            alert(v);
             wave.getState().submitDelta(k, v);
         }
     };
@@ -18,7 +16,9 @@
             return $.json.parse(waveState.getValue('E'));
         },
         set: function (tasks){
+            alert(tasks);
             tasks = $.json.stringify(tasks);
+            alert(tasks);
             waveState.setValue('E', tasks);
         },
         add: function (task){
