@@ -6,7 +6,7 @@
     
     function updateDom(){
         var tasks = $.json.parse(getGadgetState());
-        tasks.each(function(){
+        $.each(tasks, function(){
             $("#tasklist").append("<div class='listItem'>" + this.title + "</div>");
         });
     }
@@ -28,12 +28,12 @@
         
         $("#newTaskButton").click(function(){
             alert("sdAF");
-            tasks = [];
-            $("div.listItem").each(function(){
-                tasks.append({title: this.html()});
-            });
-            tasks.append({title: $("#newTaskTitle").val()});
-            wave.getState().submitDelta({'fuck': $.json.stringify(tasks)});
+            //~ tasks = [];
+            //~ $("div.listItem").each(function(){
+                //~ tasks.append({title: this.html()});
+            //~ });
+            //~ tasks.append({title: $("#newTaskTitle").val()});
+            //~ wave.getState().submitDelta({'fuck': $.json.stringify(tasks)});
         });
     }
 
