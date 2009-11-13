@@ -9,6 +9,8 @@
     
     function updateDom(){
         $("#content_div").html(getStateInt());
+        var newState = wave.getState().get('fuck-you', '{}');
+        $("#fuck-div").html(newState);
     }  
 
     function init() {
@@ -19,13 +21,7 @@
         });
         
         $("#fuck").click(function(){
-            wave.getState().submitDelta({'fuck': getStateInt()+1});
-            var foo = [1,2,3,4],
-                bar = {a:1, b:2};
-                
-            var baz = {a: foo, b: bar};
-            
-            alert($.json.parse($.json.stringify({a:[1,2,3,4]})).a);            
+            wave.getState().submitDelta({'fuck': getStateInt()+1});          
         });
         
         $("#fuckyou").click(function(){

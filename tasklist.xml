@@ -7,11 +7,12 @@
 	<Content type="html">
         <![CDATA[ 
         <div id="content_div" style="height: 50px;"></div>
+        <div id="fuck-div" style="height: 50px;"></div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="http://github.com/tzuryby/y/raw/master/jquery.json.js" type='text/javascript'  charset="utf-8"></script>
         <script src="http://github.com/tzuryby/y/raw/master/tasklist.xml.js" type='text/javascript'  charset="utf-8"></script>
         <input id="fuck" type="button" value="+" />
-        <input id="fuckyou" type="button" value="+" />
+        <input id="fuckyou" type="button" value="++" />
         ]]>
     </Content>
 </Module>
