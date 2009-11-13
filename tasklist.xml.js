@@ -27,6 +27,15 @@
             
             alert($.json.parse($.json.stringify({a:[1,2,3,4]})).a);            
         });
+        
+        $("#fuckyou").click(function(){
+            var newState = wave.getState().get('fuck-you', '{}');
+            newState = $.json.parse(newState);
+            newState.a = "1";
+            newState = $.json.stringify(newState);
+            wave.getState().submitDelta({'fuck-you': newState});
+            
+        });
     }
     gadgets.util.registerOnLoadHandler(init);
 })();
