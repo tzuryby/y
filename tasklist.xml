@@ -10,10 +10,10 @@
         <script src="http://github.com/tzuryby/y/raw/master/jquery.json.js" type='text/javascript'>
         <script src="http://github.com/tzuryby/y/raw/master/tasklist.xml.js" type='text/javascript'>
         </script>
-            <div id="tasklist"></div>
-            <hr/>
-            <input type="text" id="newTaskTitle" value="type here" /> 
-            <input type="button" id="newTaskButton">Add</a>
+        <div id="tasklist"></div>
+        <hr/>
+        <input type="text" id="newTaskTitle" value="type here" /> 
+        <input type="button" id="newTaskButton">Add</a>
         ]]>
     </Content>
 </Module>

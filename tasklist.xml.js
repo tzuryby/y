@@ -27,6 +27,7 @@
         });
         
         $("#newTaskButton").click(function(){
+            alert("sdAF");
             tasks = [];
             $("div.listItem").each(function(){
                 tasks.append({title: this.html());
