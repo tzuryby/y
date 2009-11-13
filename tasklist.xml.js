@@ -12,6 +12,7 @@
     
     var taskManager = {
         get: function (){
+            alert('a');
             return $.json.parse(waveState.getValue('tasks'));
         },
         set: function (tasks){
@@ -19,7 +20,6 @@
             waveState.setValue('tasks', tasks);
         },
         add: function (task){
-            alert('a');
             tasks = taskManager.get();
             alert(tasks);
             tasks[task.id] = task;
