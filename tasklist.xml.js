@@ -5,18 +5,18 @@
     }
     
     function updateDom(){
-        var tasks = $.json.parse(getGadgetState());
-        $.each(tasks, function(){
-            $("#tasklist").append("<div class='listItem'>" + this.title + "</div>");
-        });
+        //~ var tasks = $.json.parse(getGadgetState());
+        //~ $.each(tasks, function(){
+            //~ $("#tasklist").append("<div class='listItem'>" + this.title + "</div>");
+        //~ });
     }
     
     function updateState(){
-        tasks = [];
-        $("div.listItem").each(function(){
-            tasks.append({title: this.html());
-        });
-        wave.getState().submitDelta({'fuck': $.json.stringify(tasks)});
+        //~ tasks = [];
+        //~ $("div.listItem").each(function(){
+            //~ tasks.append({title: this.html());
+        //~ });
+        //~ wave.getState().submitDelta({'fuck': $.json.stringify(tasks)});
     }
     
     function init() {
