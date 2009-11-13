@@ -20,7 +20,7 @@
         },
         add: function (task){
             tasks = taskManager.get();
-            alert(tasks);
+            alert($.json.stringify(tasks));
             tasks[task.id] = task;
             taskManager.set(tasks);
         },
