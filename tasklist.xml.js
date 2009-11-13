@@ -1,7 +1,7 @@
 (function (){
     
     function addTask(task){
-        current = wave.getState().get("tasks");
+        current = wave.getState().get("tasks", '');
         current = (current && $.json.parse(current)) || {};
         current[new Date()] = task;
         
