@@ -14,13 +14,12 @@
     var taskManager = {
     
         get: function (){
-            tasks = waveState.getValue('E') || '{}'
+            tasks = waveState.getValue('FUCK') || '{a:1}'
             return $.json.parse(tasks);
         },
         set: function (tasks){
             tasks = $.json.stringify(tasks);
-            alert(tasks);
-            waveState.setValue('E', tasks);
+            waveState.setValue('FUCK', tasks);
         },
         add: function (task){
             tasks = taskManager.get();
