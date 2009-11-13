@@ -16,7 +16,7 @@
         </div>
         <div id="newTask">
             <hr/>
-            <input type="text" id="newTaskText" /> <a href="#" id="newTaskLink" />
+            <input type="text" id="newTaskText" /> <a href="#" id="newTaskLink">add</a>
         </div>
         ]]>
     </Content>
