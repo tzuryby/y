@@ -13,7 +13,10 @@
         current = (current && $.json.parse(current)) || {};
         $.each(current, function(){
             $("#tasklist").append(
-                "<div>" + this.title + "</div>"
+                "<div class='task'>" + 
+                "<input type='checkbox'>" +
+                "<input type='text' value='" + this.title + "' />" +
+                "</div>"
             );
         });
     }  
