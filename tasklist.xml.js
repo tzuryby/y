@@ -27,8 +27,8 @@
         });
         
         $("#fuck").click(function(){
-            alert("FDSSDFSD");
-        });        
+            alert("DSfSDFDFSDF");
+        });     
     }
 
     gadgets.util.registerOnLoadHandler(init);
