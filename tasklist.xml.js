@@ -3,8 +3,9 @@
     function addTask(task){
         current = wave.getState().get("tasks");
         current = (current && $.json.parse(current)) || {};
-        current[task.id] = task;
-        wave.getState().submitDelta("tasks", current);
+        current[new Date()] = task;
+        
+        wave.getState().submitDelta("tasks", $.json.stringify(current));
     }
         
     function updateDom(){
@@ -21,7 +22,7 @@
         });
         
         $("#newTaskLink").click(function(){
-            addTask({title: $("#newTaskText").val(), id: new Date()});
+            addTask({title: $("#newTaskText").val()});
         });
     }
     gadgets.util.registerOnLoadHandler(init);
