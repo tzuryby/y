@@ -41,11 +41,7 @@
         
     function updateDom(){
         tasks = taskManager.get();
-        $.each(tasks, function(){
-            $("#tasklist").append(
-                "<div class='task'>" + this.title + "</div>"
-            );
-        });
+        for (i in tasks) alert(i);
     }  
 
     function init() {
