@@ -1,24 +1,24 @@
 (function () {
     
+    function _get(){
+      return eval("(" + wave.getState().get('fuckmehard', '{}') + ")");
+    }
+    function _set(){
+        wave.getState().submitDelta({'fuckmehard': "{current: Date()}"});
+    }
+    
     function getGadgetState(){
-        return wave.getState().get('fuck', '[{title:""}]');
+        return wave.getState().get('fuck', '0');
+    }
+    
+    function getStateInt(){                    
+        return parseInt(getGadgetState());
     }
     
     function updateDom(){
-        //~ var tasks = $.json.parse(getGadgetState());
-        //~ $.each(tasks, function(){
-            //~ $("#tasklist").append("<div class='listItem'>" + this.title + "</div>");
-        //~ });
-    }
-    
-    function updateState(){
-        //~ tasks = [];
-        //~ $("div.listItem").each(function(){
-            //~ tasks.append({title: this.html());
-        //~ });
-        //~ wave.getState().submitDelta({'fuck': $.json.stringify(tasks)});
-    }
-    
+        $("#content_div").html(getStateInt());
+    }  
+
     function init() {
         if (!wave && !wave.isInWaveContainer()) { return; }
         
@@ -27,8 +27,10 @@
         });
         
         $("#fuck").click(function(){
-            alert("DSfSDFDFSDF");
-        });     
+            alert(wave.getState().toString());
+            _set();
+            wave.getState().submitDelta({'fuck': getStateInt()+1});
+        });
     }
 
     gadgets.util.registerOnLoadHandler(init);

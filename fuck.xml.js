@@ -16,8 +16,7 @@
     }
     
     function updateDom(){
-        $("#content_div").html(getStateInt());    
-        //alert(wave.getState().toString());                                    
+        $("#content_div").html(getStateInt());
     }  
 
     function init() {
