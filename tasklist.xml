@@ -13,7 +13,7 @@
         <div id="tasklist"></div>
         <hr/>
         <input type="text" id="newTaskTitle" value="type here" /> 
-        <input type="button" id="newTaskButton">Add</a>
+        <input id="fuck" type="button" value="+" />
         ]]>
     </Content>
 </Module>

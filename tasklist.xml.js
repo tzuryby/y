@@ -26,15 +26,9 @@
             wave.setStateCallback(updateDom);
         });
         
-        $("#newTaskButton").click(function(){
-            alert("sdAF");
-            //~ tasks = [];
-            //~ $("div.listItem").each(function(){
-                //~ tasks.append({title: this.html()});
-            //~ });
-            //~ tasks.append({title: $("#newTaskTitle").val()});
-            //~ wave.getState().submitDelta({'fuck': $.json.stringify(tasks)});
-        });
+        $("#fuck").click(function(){
+            alert("FDSSDFSD");
+        });        
     }
 
     gadgets.util.registerOnLoadHandler(init);
