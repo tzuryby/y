@@ -1,45 +1,15 @@
 (function (){
-
-    var waveState = {
-        getValue : function (k, v){
-            return wave.getState().get(k, v);
-        },
-        
-        setValue: function (k, v){
-            alert (k + ':' + v);
-            wave.getState().submitDelta(k, v);
-        }
-    };
     
-    var taskManager = {
-        a:22,
-        get: function (){
-            tasks = waveState.getValue('FUCK') || '{a:1}'
-            return $.json.parse(tasks);
-        },
-        set: function (tasks){
-            tasks = $.json.stringify(tasks);
-            waveState.setValue('FUCK', tasks);
-        },
-        add: function (task){
-            tasks = taskManager.get();
-            tasks[task.id] = task;
-            taskManager.set(tasks);
-        },
-        remove: function(k){
-            tasks = taskManager.get();
-            delete tasks[k];
-            taskManager.set(tasks);        
-        },
-        toggle: function (id){
-            tasks = taskManager.get();
-            tasks[k].done = ! tasks[k].done;
-            taskManager.set(tasks);         
-        }
+    function addTask(task){
+        current = wave.getState().get("tasks");
+        current = (current && $.json.parse(current)) || {};
+        current[task.id] = task;
+        wave.getState().submitDelta("tasks", current);
     }
         
     function updateDom(){
-        tasks = taskManager.get();
+        current = wave.getState().get("tasks");
+        current = (current && $.json.parse(current)) || {};
         for (i in tasks) alert(i);
     }  
 
@@ -51,7 +21,7 @@
         });
         
         $("#newTaskLink").click(function(){
-            taskManager.add({title: $("#newTaskText").val(), id: new Date()});
+            addTask({title: $("#newTaskText").val(), id: new Date()});
         });
     }
     gadgets.util.registerOnLoadHandler(init);
