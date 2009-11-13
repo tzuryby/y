@@ -16,6 +16,7 @@
         },
         set: function (tasks){
             tasks = $.json.stringify(tasks);
+            alert(tasks);
             waveState.setValue('tasks', tasks);
         },
         add: function (task){
