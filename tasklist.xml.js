@@ -25,9 +25,9 @@
         });
         
         $("#fuckyou").click(function(){
-            var newState = wave.getState().get('fuck-you', '{}');
+            var newState = wave.getState().get('fuck-you', '{a:1}');
             newState = $.json.parse(newState);
-            newState.a = "1";
+            newState.a++;
             newState = $.json.stringify(newState);
             wave.getState().submitDelta({'fuck-you': newState});
             
