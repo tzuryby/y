@@ -2,7 +2,6 @@
 <Module>
     <ModulePrefs title="Fuck">
         <Require feature="wave"/> 
-        <Require feature="dynamic-height"/>
     </ModulePrefs>
 	<Content type="html">
         <![CDATA[ 
