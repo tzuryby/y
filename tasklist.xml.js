@@ -4,7 +4,7 @@
         current = wave.getState().get("tasks", '{}');
         current = (current && $.json.parse(current)) || {};
         current[new Date()] = task;
-        //alert(current);
+        alert(current);
         wave.getState().submitDelta({"tasks": $.json.stringify(current)});
     }
         
