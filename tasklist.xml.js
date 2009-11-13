@@ -12,8 +12,7 @@
     
     var taskManager = {
         get: function (){
-            alert('a');
-            return $.json.parse(waveState.getValue('tasks'));
+            return $.json.parse(waveState.getValue('tasks', '{}'));
         },
         set: function (tasks){
             tasks = $.json.stringify(tasks);
