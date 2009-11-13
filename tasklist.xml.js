@@ -52,7 +52,9 @@
         });
         
         $("#newTaskLink").click(function(){
+            alert('s');
             taskManager.add({title: $("#newTaskText").val()});
+            alert('w');
         });
     }
     gadgets.util.registerOnLoadHandler(init);
