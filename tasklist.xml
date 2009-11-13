@@ -12,7 +12,7 @@
         <script src="http://github.com/tzuryby/y/raw/master/jquery.json.js" type='text/javascript'  charset="utf-8"></script>
         <script src="http://github.com/tzuryby/y/raw/master/tasklist.xml.js" type='text/javascript'  charset="utf-8"></script>
         <input id="fuck" type="button" value="+" />
-        <input id="fuckyou" type="button" value="++" />
+        <input id="fuckyou" type="button" value="{+:+}" />
         ]]>
     </Content>
 </Module>
