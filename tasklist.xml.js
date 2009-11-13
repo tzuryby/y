@@ -11,6 +11,10 @@
     };
     
     var taskManager = {
+        newid: function(){
+            lastId = waveState.getValue('lastId', '0');
+            
+        },
         get: function (){
             return $.json.parse(waveState.getValue('tasks', '{}'));
         },
@@ -54,7 +58,7 @@
         });
         
         $("#newTaskLink").click(function(){
-            taskManager.add({title: $("#newTaskText").val()});
+            taskManager.add({title: $("#newTaskText").val(), id: new Date();});
         });
     }
     gadgets.util.registerOnLoadHandler(init);
