@@ -1,11 +1,5 @@
 (function () {
     
-    function _get(){
-      return eval("(" + wave.getState().get('fuckmehard', '{}') + ")");
-    }
-    function _set(){
-        wave.getState().submitDelta({'fuckmehard': "{current: Date()}"});
-    }
     
     function getGadgetState(){
         return wave.getState().get('fuck', '0');
@@ -27,8 +21,6 @@
         });
         
         $("#fuck").click(function(){
-            alert(wave.getState().toString());
-            _set();
             wave.getState().submitDelta({'fuck': getStateInt()+1});
         });
     }
