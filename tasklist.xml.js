@@ -5,7 +5,7 @@
         current = (current && $.json.parse(current)) || {};
         current[new Date()] = task;
         
-        wave.getState().submitDelta("tasks", $.json.stringify(current));
+        wave.getState().submitDelta({"tasks", $.json.stringify(current)});
     }
         
     function updateDom(){
