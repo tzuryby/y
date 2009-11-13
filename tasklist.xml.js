@@ -1,16 +1,47 @@
 (function (){
-    function getGadgetState(){
-        return wave.getState().get('fuck', '0');
-    }
+
+    var waveState = {
+        getValue : function (k, v){
+            return wave.getState().get(k, v);
+        },
+        
+        setValue: function (k, v){
+            wave.getState().submitDelta(k, v);
+        }
+    };
     
-    function getStateInt(){                    
-        return parseInt(getGadgetState());
+    var taskManager = {
+        get: function (){
+            return $.json.parse(waveState.getValue('tasks'));
+        },
+        set: function (tasks){
+            tasks = $.json.stringify(tasks);
+            waveState.setValue('tasks', tasks);
+        },
+        add: function (task){
+            tasks = taskManager.get();
+            tasks[task.id] = task;
+            taskManager.set(tasks);
+        },
+        remove: function(k){
+            tasks = taskManager.get();
+            delete tasks[k];
+            taskManager.set(tasks);        
+        },
+        toggle: function (id){
+            tasks = taskManager.get();
+            tasks[k].done = ! tasks[k].done;
+            taskManager.set(tasks);         
+        }
     }
-    
+        
     function updateDom(){
-        $("#content_div").html(getStateInt());
-        var newState = wave.getState().get('fuck-you', '{}');
-        $("#fuck-div").html(newState);
+        tasks = taskManager.get();
+        $.each(tasks, function(){
+            $("#tasklist").append(
+                "<div class='task'>" + this.title + "</div>"
+            );
+        });
     }  
 
     function init() {
@@ -20,17 +51,8 @@
             wave.setStateCallback(updateDom);
         });
         
-        $("#fuck").click(function(){
-            wave.getState().submitDelta({'fuck': getStateInt()+1});          
-        });
-        
-        $("#fuckyou").click(function(){
-            var newState = wave.getState().get('fuck-you', '{a:1}');
-            newState = $.json.parse(newState);
-            newState.a++;
-            newState = $.json.stringify(newState);
-            wave.getState().submitDelta({'fuck-you': newState});
-            
+        $("#newTaskLink").click(function(){
+            taskManager.add({title: $("#newTaskText").val()});
         });
     }
     gadgets.util.registerOnLoadHandler(init);
