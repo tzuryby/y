@@ -11,17 +11,13 @@
     };
     
     var taskManager = {
-        newid: function(){
-            lastId = waveState.getValue('lastId', '0');
-            
-        },
+    
         get: function (){
-            return $.json.parse(waveState.getValue('tasks', '{}'));
+            return $.json.parse(waveState.getValue('E'));
         },
         set: function (tasks){
             tasks = $.json.stringify(tasks);
-            alert(tasks);
-            waveState.setValue('tasks', tasks);
+            waveState.setValue('E', tasks);
         },
         add: function (task){
             tasks = taskManager.get();
