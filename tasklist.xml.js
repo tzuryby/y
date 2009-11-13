@@ -58,7 +58,7 @@
         });
         
         $("#newTaskLink").click(function(){
-            taskManager.add({title: $("#newTaskText").val(), id: new Date();});
+            taskManager.add({title: $("#newTaskText").val(), id: new Date()});
         });
     }
     gadgets.util.registerOnLoadHandler(init);
