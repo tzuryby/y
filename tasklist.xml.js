@@ -12,7 +12,7 @@
     };
     
     var taskManager = {
-    
+        a:22,
         get: function (){
             tasks = waveState.getValue('FUCK') || '{a:1}'
             return $.json.parse(tasks);
@@ -23,7 +23,6 @@
         },
         add: function (task){
             tasks = taskManager.get();
-            alert(tasks);
             tasks[task.id] = task;
             taskManager.set(tasks);
         },
