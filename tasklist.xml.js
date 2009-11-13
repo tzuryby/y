@@ -19,7 +19,9 @@
             waveState.setValue('tasks', tasks);
         },
         add: function (task){
+            alert('a');
             tasks = taskManager.get();
+            alert(tasks);
             tasks[task.id] = task;
             taskManager.set(tasks);
         },
@@ -52,9 +54,7 @@
         });
         
         $("#newTaskLink").click(function(){
-            alert('s');
             taskManager.add({title: $("#newTaskText").val()});
-            alert('w');
         });
     }
     gadgets.util.registerOnLoadHandler(init);
