@@ -14,17 +14,16 @@
     var taskManager = {
     
         get: function (){
-            return $.json.parse(waveState.getValue('E', '{}'));
+            tasks = waveState.getValue('E') || '{}'
+            return $.json.parse(tasks);
         },
         set: function (tasks){
-            alert(tasks);
             tasks = $.json.stringify(tasks);
             alert(tasks);
             waveState.setValue('E', tasks);
         },
         add: function (task){
             tasks = taskManager.get();
-            alert($.json.stringify(tasks));
             tasks[task.id] = task;
             taskManager.set(tasks);
         },
