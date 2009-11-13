@@ -6,6 +6,8 @@
         },
         
         setValue: function (k, v){
+            alert(k);
+            alert(v);
             wave.getState().submitDelta(k, v);
         }
     };
@@ -39,7 +41,6 @@
         
     function updateDom(){
         tasks = taskManager.get();
-        alert(tasks);
         $.each(tasks, function(){
             $("#tasklist").append(
                 "<div class='task'>" + this.title + "</div>"
