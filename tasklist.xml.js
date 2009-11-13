@@ -22,6 +22,7 @@
         
         $("#fuck").click(function(){
             wave.getState().submitDelta({'fuck': getStateInt()+1});
+            alert($.json.toSource());
         });
     }
 
