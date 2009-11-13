@@ -1,11 +1,11 @@
 (function (){
     
     function addTask(task){
-        current = wave.getState().get("tasks", '');
+        current = wave.getState().get("tasks", '{}');
         current = (current && $.json.parse(current)) || {};
         current[new Date()] = task;
-        
-        wave.getState().submitDelta({"tasks", $.json.stringify(current)});
+        //alert(current);
+        wave.getState().submitDelta({"tasks": $.json.stringify(current)});
     }
         
     function updateDom(){
