@@ -11,6 +11,7 @@
     function updateDom(){
         current = wave.getState().get("tasks", '{a:1}');
         current = (current && $.json.parse(current)) || {};
+        $("#tasklist").empty();
         $.each(current, function(){
             $("#tasklist").append(
                 "<div class='task'>" + 
