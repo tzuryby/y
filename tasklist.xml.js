@@ -4,7 +4,7 @@
     function randomchar (){return randomchars[Math.round(Math.random() * randomchars.length-1)]; }    
     function fakeuuid(){return [randomchar(), randomchar(), randomchar(), randomchar(), randomchar()].join("");}
     
-    function changeList(modifier, arg){
+    function modifyList(modifier, arg){
         tasks = wave.getState().get("tasks", '{}');
         tasks = (tasks && $.json.parse(tasks)) || {};
         tasks = $.json.stringify(modifier(tasks, arg));
@@ -12,9 +12,10 @@
     }
     
     function addTask(tasks, task){
-        console.log(tasks);
-        console.log(task);
+        console.log('tasks by far: ', tasks);    
+        console.log('new task: ', task);
         tasks[task.id] = task;
+        console.log('update tasklist', tasks);
         return tasks;
     }
     
@@ -57,14 +58,14 @@
                 title: $("#newTaskText").val(), 
                 id: fakeuuid()
             };
-            changeList(addTask,task);
+            modifyList(addTask,task);
         });
         
         $(".taskCheckBox").live("click", function(){
             var parent = $(this).parent();
             parent.toggleClass('doneTask');
             var taskId = parent.attr("taskId");
-            changeList(toggleDone,taskId);
+            modifyList(toggleDone,taskId);
         });
     }
     
