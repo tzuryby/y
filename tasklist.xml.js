@@ -1,6 +1,6 @@
 (function (){
     if (! window.console ) {
-        var window.console = {log: function(){}};
+        window.console = {log: function(){}};
     }
     var randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
     function randomchar (){return randomchars[Math.round(Math.random() * randomchars.length-1)]; }   
