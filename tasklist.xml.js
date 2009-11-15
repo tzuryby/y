@@ -65,7 +65,7 @@
         
         $(".taskCheckBox").live("click", function(){
             var taskId = $(this.parent).attr("taskId");
-            wave.log("taskId:" + taskId);
+            alert("taskId:" + taskId);
             toggleDone(taskId);
         });
     }
