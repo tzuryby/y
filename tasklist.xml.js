@@ -1,7 +1,7 @@
 (function (){
     
     var randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
-    function randomchar (){return randomchars[Math.round(Math.random() * images.length-1)]; }    
+    function randomchar (){return randomchars[Math.round(Math.random() * randomchars.length-1)]; }    
     function fakeuuid(){return [randomchar(), randomchar(), randomchar(), randomchar(), randomchar()].join("");}
     
     function addTask(task){
