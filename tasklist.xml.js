@@ -64,7 +64,7 @@
         });
         
         $(".taskCheckBox").live("click", function(){
-            var taskId = $(this).parent.attr("taskId");
+            var taskId = $(this).parent().attr("taskId");
             alert("taskId:" + taskId);
             toggleDone(taskId);
         });
