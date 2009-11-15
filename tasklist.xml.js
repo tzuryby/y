@@ -15,10 +15,19 @@
         };
         
     }
+    
     function addTask(task){
         current = wave.getState().get("tasks", '{}');
         current = (current && $.json.parse(current)) || {};
         current[new Date()] = task;
+        current = $.json.stringify(current);
+        wave.getState().submitDelta({"tasks": current});
+    }
+    
+    function toggleDone(taskId){
+        current = wave.getState().get("tasks", '{}');
+        current = (current && $.json.parse(current)) || {};
+        current[taskid].done = !current[taskid].done;
         current = $.json.stringify(current);
         wave.getState().submitDelta({"tasks": current});
     }
@@ -34,7 +43,7 @@
         $.each(current, function(){
             $("#tasklist").append(
                 "<div class='task' taskId='" + this.id + "'" + ((this.done) ? " class='doneTask' " : "" ) + ">" + 
-                    "<input type='checkbox'" + 
+                    "<input class='taskCheckBox' type='checkbox'" + 
                         ((this.done) ? " checked='checked' " : "") + " />" +
                     "<input type='text' value='" + 
                         this.title + "' class='taskInput' />" +
@@ -52,6 +61,11 @@
         
         $("#newTaskLink").click(function(){
             addTask({title: $("#newTaskText").val()});
+        });
+        
+        $(".taskCheckBox").live("click", function(){
+            var taskId = $(this.parent).attr("taskId");
+            toggleDone(taskId);
         });
     }
     
