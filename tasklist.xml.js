@@ -1,14 +1,18 @@
 (function (){
-    
+    if (! window.console ) {
+        var window.console = {log: function(){}};
+    }
     var randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
-    function randomchar (){return randomchars[Math.round(Math.random() * randomchars.length-1)]; }    
+    function randomchar (){return randomchars[Math.round(Math.random() * randomchars.length-1)]; }   
+    // generate randomized 5 bytes string. *not* to be use in real world app.
     function fakeuuid(){return [randomchar(), randomchar(), randomchar(), randomchar(), randomchar()].join("");}
     
     function modifyList(modifier, arg){
-        tasks = wave.getState().get("tasks", '{}');
+        var tasks = wave.getState().get("tasks", '{}');
         tasks = (tasks && $.json.parse(tasks)) || {};
-        tasks = $.json.stringify(modifier(tasks, arg));
-        wave.getState().submitDelta({"tasks": tasks});    
+        tasks = modifier(tasks, arg);
+        tasks = $.json.stringify(tasks);
+        wave.getState().submitDelta({"tasks": tasks});
     }
     
     function addTask(tasks, task){
