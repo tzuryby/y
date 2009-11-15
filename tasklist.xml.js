@@ -1,6 +1,6 @@
 (function (){
     
-    function randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
+    var randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
     function randomchar (){return Math.random() * randomchars.length-1; }    
     function fakeuuid(){return [randomchar(), randomchar(), randomchar(), randomchar(), randomchar()].join("");}
     
