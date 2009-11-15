@@ -1,6 +1,9 @@
 .task {
 	border-bottom: 1px dotted grey;
 	}
+.task:hover {
+	background-color: #00c0c0;
+}
 	
 .doneTask {
 	text-decoration:line-through
@@ -10,9 +13,6 @@
 	border: 0px;
 	}
 	
-.taskInput:hover {
-	background-color: #0088cc;
-	}
 
 .taskInputDone {
 	font-style: italic
