@@ -43,7 +43,7 @@
             $("#tasklist").append(
                 "<div taskId='" + this.id + "'" +  
                     "class='task" + ((this.done) ? " doneTask' " : "'" ) + ">" + 
-                    //"<a class='deleteTask' href='#'>del</a>" + 
+                    "<a class='deleteTask' href='#'>del</a>" + 
                     "<input class='taskCheckBox' type='checkbox'" + 
                         ((this.done) ? " checked='checked' " : "") + " />" +
                     "<input type='text' value='" + 
@@ -76,7 +76,7 @@
             modifyList(toggleDone,taskId);
         });
         
-        $(".deleteTask").live("click"), function(){
+        $(".deleteTask").live("click", function(){
             var parent = $(this).parent();
             var taskId = parent.attr("taskId");
             modifyList(delTask,taskId);        
