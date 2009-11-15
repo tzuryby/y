@@ -2,7 +2,7 @@
     
     function randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
     function randomchar (){return Math.random() * randomchars.length-1; }    
-    function fakeuuid(){return [random(), random(), random(), random(), random()].join("");}
+    function fakeuuid(){return [randomchar(), randomchar(), randomchar(), randomchar(), randomchar()].join("");}
     
     function addTask(task){
         current = wave.getState().get("tasks", '{}');
