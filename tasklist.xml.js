@@ -4,20 +4,21 @@
     function randomchar (){return randomchars[Math.round(Math.random() * randomchars.length-1)]; }    
     function fakeuuid(){return [randomchar(), randomchar(), randomchar(), randomchar(), randomchar()].join("");}
     
-    function addTask(task){
+    function modifyList(modifier, arg){
         current = wave.getState().get("tasks", '{}');
         current = (current && $.json.parse(current)) || {};
-        current[task.id] = task;
-        current = $.json.stringify(current);
-        wave.getState().submitDelta({"tasks": current});
+        current = $.json.stringify(modifier(current, arg));
+        wave.getState().submitDelta({"tasks": current});    
     }
     
-    function toggleDone(taskId){
-        current = wave.getState().get("tasks", '{}');
-        current = (current && $.json.parse(current)) || {};
-        current[taskId].done = !current[taskId].done;
-        current = $.json.stringify(current);
-        wave.getState().submitDelta({"tasks": current});
+    function addTask(tasks, task){
+        tasks[task.id] = task;
+        return task;
+    }
+    
+    function toggleDone(tasks, taskId){
+        tasks[taskId].done = !tasks[taskId].done;
+        return tasks;
     }
     
     function domifyList(){
@@ -52,14 +53,14 @@
                 title: $("#newTaskText").val(), 
                 id: fakeuuid()
             };
-            addTask(task);
+            modifyList(addTask,task);
         });
         
         $(".taskCheckBox").live("click", function(){
             var parent = $(this).parent();
             parent.toggleClass('doneTask');
             var taskId = parent.attr("taskId");
-            toggleDone(taskId);
+            modifyList(toggleDone,taskId);
         });
     }
     
