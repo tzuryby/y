@@ -15,7 +15,7 @@
     function toggleDone(taskId){
         current = wave.getState().get("tasks", '{}');
         current = (current && $.json.parse(current)) || {};
-        current[taskid].done = !current[taskid].done;
+        current[taskId].done = !current[taskId].done;
         current = $.json.stringify(current);
         wave.getState().submitDelta({"tasks": current});
     }
