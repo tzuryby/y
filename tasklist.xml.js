@@ -12,11 +12,15 @@
     }
     
     function addTask(tasks, task){
+        console.log(tasks);
+        console.log(task);
         tasks[task.id] = task;
-        return task;
+        return tasks;
     }
     
     function toggleDone(tasks, taskId){
+        console.log(tasks);
+        console.log(taskId);
         tasks[taskId].done = !tasks[taskId].done;
         return tasks;
     }
