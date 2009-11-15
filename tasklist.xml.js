@@ -1,20 +1,8 @@
 (function (){
-    if (!wave){
-        wave = {}
-        wave.getState = function() {
-            return {
-                get : function () { 
-                    return {
-                    1: {done:false, title: "do this"},
-                    2: {done:false, title: "do that"}
-                    }
-                },
-                
-                submitDelta: function(){}
-            };
-        };
-        
-    }
+    
+    function randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
+    function randomchar (){return Math.random() * randomchars.length-1; }    
+    function fakeuuid(){return [random(), random(), random(), random(), random()].join("");}
     
     function addTask(task){
         current = wave.getState().get("tasks", '{}');
@@ -60,7 +48,11 @@
         });
         
         $("#newTaskLink").click(function(){
-            addTask({title: $("#newTaskText").val(), id: Date()});
+            task = {
+                title: $("#newTaskText").val(), 
+                id: fakeuuid()
+            };
+            addTask(task);
         });
         
         $(".taskCheckBox").live("click", function(){
