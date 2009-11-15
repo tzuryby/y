@@ -21,7 +21,7 @@
     }
     
     function delTask(tasks, taskId){
-        delete tasks[task.id];
+        delete tasks[taskId];
         return tasks;    
     }
     
