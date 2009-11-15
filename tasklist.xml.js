@@ -16,21 +16,21 @@
     }
     
     function addTask(tasks, task){
-        console.log('tasks by far: ', tasks);    
-        console.log('new task: ', task);
         tasks[task.id] = task;
-        console.log('updated tasklist', tasks);
         return tasks;
+    }
+    
+    function delTask(tasks, taskId){
+        delete tasks[task.id];
+        return tasks;    
     }
     
     function toggleDone(tasks, taskId){
-        console.log('tasks by far: ', tasks);    
-        console.log('taskid: ', taskId);    
         tasks[taskId].done = !tasks[taskId].done;
-        console.log('updated tasklist', tasks);
         return tasks;
     }
     
+    // make the list way into the DOM
     function domifyList(){
         current = wave.getState().get("tasks", '{a:1}');
         current = (current && $.json.parse(current));
@@ -41,7 +41,9 @@
         // render list items
         $.each(current, function(){
             $("#tasklist").append(
-                "<div taskId='" + this.id + "'" +  "class='task" + ((this.done) ? " doneTask' " : "'" ) + ">" + 
+                "<div taskId='" + this.id + "'" +  
+                    "class='task" + ((this.done) ? " doneTask' " : "'" ) + ">" + 
+                    "<a class='deleteTask' href='#'>del</a>" + 
                     "<input class='taskCheckBox' type='checkbox'" + 
                         ((this.done) ? " checked='checked' " : "") + " />" +
                     "<input type='text' value='" + 
@@ -51,6 +53,7 @@
         });
     }
     
+    // 
     function init() {
         if (!wave && !wave.isInWaveContainer()) { return; }
         
@@ -71,6 +74,12 @@
             parent.toggleClass('doneTask');
             var taskId = parent.attr("taskId");
             modifyList(toggleDone,taskId);
+        });
+        
+        $(".deleteTask").live("click"), function(){
+            var parent = $(this).parent();
+            var taskId = parent.attr("taskId");
+            modifyList(delTask,taskId);        
         });
     }
     

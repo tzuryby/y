@@ -1,3 +1,7 @@
+#tasklist {
+	overflow: auto;
+	height: 400px;
+	}
 .task {
 	border-bottom: 1px dotted grey;
 	}

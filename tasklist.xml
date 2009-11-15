@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="Fuck" height="400">
+    <ModulePrefs title="Fuck" height="450">
         <Require feature="wave"/> 
     </ModulePrefs>
 	<Content type="html">
