@@ -1,19 +1,15 @@
 .task {
 	border-bottom: 1px dotted grey;
 	}
-.task:hover {
-	background-color: #c0c0c0;
-}
-	
+
 .doneTask , .doneTask > input[type=textbox]{
 	text-decoration:line-through
-	}
+}
 
 .taskInput {
 	border: 0px;
 	width: 90%
 }
-	
 
 .taskInputDone {
 	font-style: italic
