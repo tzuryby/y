@@ -56,8 +56,9 @@
         });
         
         $(".taskCheckBox").live("click", function(){
-            var taskId = $(this).parent().attr("taskId");
-            alert("taskId:" + taskId);
+            var parent = $(this).parent();
+            parent.toggleClass('doneTask');
+            var taskId = parent.attr("taskId");
             toggleDone(taskId);
         });
     }
