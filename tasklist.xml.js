@@ -43,7 +43,7 @@
             $("#tasklist").append(
                 "<div taskId='" + this.id + "'" +  
                     "class='task" + ((this.done) ? " doneTask' " : "'" ) + ">" + 
-                    "<a class='deleteTask' href='#'>del</a>" + 
+                    //"<a class='deleteTask' href='#'>del</a>" + 
                     "<input class='taskCheckBox' type='checkbox'" + 
                         ((this.done) ? " checked='checked' " : "") + " />" +
                     "<input type='text' value='" + 
