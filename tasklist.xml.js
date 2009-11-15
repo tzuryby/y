@@ -19,7 +19,7 @@
     function addTask(task){
         current = wave.getState().get("tasks", '{}');
         current = (current && $.json.parse(current)) || {};
-        current[new Date()] = task;
+        current[task.id] = task;
         current = $.json.stringify(current);
         wave.getState().submitDelta({"tasks": current});
     }
@@ -60,11 +60,11 @@
         });
         
         $("#newTaskLink").click(function(){
-            addTask({title: $("#newTaskText").val()});
+            addTask({title: $("#newTaskText").val(), id: Date()});
         });
         
         $(".taskCheckBox").live("click", function(){
-            var taskId = $(this.parent).attr("taskId");
+            var taskId = $(this).parent.attr("taskId");
             alert("taskId:" + taskId);
             toggleDone(taskId);
         });
