@@ -4,11 +4,11 @@
     function randomchar (){return randomchars[Math.round(Math.random() * randomchars.length-1)]; }    
     function fakeuuid(){return [randomchar(), randomchar(), randomchar(), randomchar(), randomchar()].join("");}
     
-    function modifyList(modifier, arg){
-        current = wave.getState().get("tasks", '{}');
-        current = (current && $.json.parse(current)) || {};
-        current = $.json.stringify(modifier(current, arg));
-        wave.getState().submitDelta({"tasks": current});    
+    function changeList(modifier, arg){
+        tasks = wave.getState().get("tasks", '{}');
+        tasks = (tasks && $.json.parse(tasks)) || {};
+        tasks = $.json.stringify(modifier(tasks, arg));
+        wave.getState().submitDelta({"tasks": tasks});    
     }
     
     function addTask(tasks, task){
@@ -53,14 +53,14 @@
                 title: $("#newTaskText").val(), 
                 id: fakeuuid()
             };
-            modifyList(addTask,task);
+            changeList(addTask,task);
         });
         
         $(".taskCheckBox").live("click", function(){
             var parent = $(this).parent();
             parent.toggleClass('doneTask');
             var taskId = parent.attr("taskId");
-            modifyList(toggleDone,taskId);
+            changeList(toggleDone,taskId);
         });
     }
     
