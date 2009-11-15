@@ -15,14 +15,15 @@
         console.log('tasks by far: ', tasks);    
         console.log('new task: ', task);
         tasks[task.id] = task;
-        console.log('update tasklist', tasks);
+        console.log('updated tasklist', tasks);
         return tasks;
     }
     
     function toggleDone(tasks, taskId){
-        console.log(tasks);
-        console.log(taskId);
+        console.log('tasks by far: ', tasks);    
+        console.log('taskid: ', taskId);    
         tasks[taskId].done = !tasks[taskId].done;
+        console.log('updated tasklist', tasks);
         return tasks;
     }
     
