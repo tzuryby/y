@@ -5,14 +5,14 @@
 	background-color: #c0c0c0;
 }
 	
-.doneTask {
+.doneTask , .doneTask > input[type=textbox]{
 	text-decoration:line-through
 	}
 
 .taskInput {
 	border: 0px;
 	width: 90%
-	}
+}
 	
 
 .taskInputDone {
