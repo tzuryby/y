@@ -30,7 +30,7 @@
         // render list items
         $.each(current, function(){
             $("#tasklist").append(
-                "<div class='task' taskId='" + this.id + "'" + ((this.done) ? " class='doneTask' " : "" ) + ">" + 
+                "<div taskId='" + this.id + "'" +  "class='task" + ((this.done) ? " doneTask' " : "'" ) + ">" + 
                     "<input class='taskCheckBox' type='checkbox'" + 
                         ((this.done) ? " checked='checked' " : "") + " />" +
                     "<input type='text' value='" + 
