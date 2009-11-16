@@ -48,8 +48,8 @@
                     "<input type='text' value='" + 
                         this.title + "' class='taskInput' />" +
                     "<a class='deleteTask' href='#'>" +
-                    "<img src='http://github.com/tzuryby/y/raw/master/static/media/del.png' /></a>" + 
-                        
+                    "<img src='http://github.com/tzuryby/y/raw/master/static/media/del.png'" +
+                    " alt='delete task' title='delete task' /></a>" +                         
                 "</div>"
             );
         });
