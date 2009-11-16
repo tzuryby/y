@@ -7,6 +7,9 @@
     // generate randomized 5 bytes string. *not* to be use in real world app.
     function fakeuuid(){return [randomchar(), randomchar(), randomchar(), randomchar(), randomchar()].join("");}
     
+    // Object.prototype.values = function (){var arr = [];for (i in this) arr.push(this[i]); return arr;}
+    // Object.prototype.keys = function (){var arr = [];for (i in this) arr.push(i); return arr;}
+    
     function $state(arg){
         argtype = typeof arg;
         switch (argtype){
@@ -54,23 +57,70 @@
         current = (current && $.json.parse(current));
         
         // clean tasks from dom
-        $("#tasklist").empty();
+        //$("#tasklist").empty();
         
-        // render list items
+        // iter through the wave's tasks and update DOM accordinglly.
         $.each(current, function(){
-            $("#tasklist").append(
-                "<div taskId='" + this.id + "'" +  
-                    "class='task" + ((this.done) ? " doneTask' " : "'" ) + ">" + 
-                    "<input class='taskCheckBox' type='checkbox'" + 
-                        ((this.done) ? " checked='checked' " : "") + " />" +
-                    "<input type='text' value='" + 
-                        this.title + "' class='taskInput' />" +
-                    "<a class='deleteTask' href='#'>" +
-                    "<img src='http://github.com/tzuryby/y/raw/master/static/media/del.png'" +
-                    " alt='delete task' title='delete task' /></a>" +                         
-                "</div>"
-            );
+            // check if tasks exists and if it differ from the wave's copy //            
+            // if not exists in the DOM, add items
+            var domTask = $("#tasklist").children("div[taskId=" + this.id + "]");
+            
+            // task exists
+            if (domTask.length){
+                domTask = domTask[0];                
+                // check if task share same atrributes, leave it.
+                var domTitle = domTask.children("input.taskInput").val(),
+                    domDone = domTask.children("input:checkbox").val();
+                    
+                if (domTitle === this.title && (!!domDone == !!this.done)) {
+                    // same shit, leave it
+                    console.log("ignore task#" + this.id);
+                }
+                
+                else {
+                    console.log("update task#" + this.id);
+                    domTask.children("input.taskInput").val(this.title);
+                    if (this.done){
+                        domTask.children("input:checkbox").attr("checked", "checked");
+                    }
+                    else {
+                        domTask.children("input:checkbox").removeAttr("checked");
+                    }
+                }
+            }
+            else{
+                // wave's task not in DOM yet, add it.
+                console.log("adding task#" + this.id);
+                $("#tasklist").append(
+                    "<div taskId='" + this.id + "'" +  
+                        "class='task" + ((this.done) ? " doneTask' " : "'" ) + ">" + 
+                        "<input class='taskCheckBox' type='checkbox'" + 
+                            ((this.done) ? " checked='checked' " : "") + " />" +
+                        "<input type='text' value='" + 
+                            this.title + "' class='taskInput' />" +
+                        "<a class='deleteTask' href='#'>" +
+                        "<img src='http://github.com/tzuryby/y/raw/master/static/media/del.png'" +
+                        " alt='delete task' title='delete task' /></a>" +                         
+                    "</div>"
+                );       
+            }
         });
+        
+            
+        // at last, check if there are DOM tasks which exists in DOM only.
+        var delList = [];
+        $("#tasklist").children("div.task").each(function(){
+            var id = $(this).attr(taskId);
+            if (!current[id]){
+                delList.push(id);
+            }
+        });
+        
+        for (i in delList){
+            console.log("deleting task#" + this.id);
+            /// remove this id from DOM
+            $("div[taskId=" + delList[i] + "]").remove();
+        }
         
         var msg = $state("notify");
         if (msg){
