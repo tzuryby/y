@@ -110,7 +110,7 @@
         // at last, check if there are DOM tasks which exists in DOM only.
         var delList = [];
         $("#tasklist").children("div.task").each(function(){
-            var id = $(this).attr(taskId);
+            var id = $(this).attr("taskId");
             if (!current[id]){
                 delList.push(id);
             }
