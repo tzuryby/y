@@ -18,3 +18,8 @@
 .taskInputDone {
 	font-style: italic
 	}
+
+
+.deleteTask { 
+	border: 0px;
+	}
