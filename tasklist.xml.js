@@ -60,7 +60,7 @@
     
     function notify(msg){
         $("#notificator").html(msg).show();
-        setTimeout(function(){$("#notificator").hide("slow")}, 3000);
+        setTimeout(function(){$("#notificator").hide()}, 3000);
     }
     
     // 
