@@ -138,8 +138,8 @@
         
         var msg = $state("notify");
         if (msg){
-            $("#notificator").html(msg).show("slow");
-            setTimeout(function(){$("#notificator").hide("slow");}, 5000);        
+            $("#notificator").html(msg).show();
+            setTimeout(function(){$("#notificator").hide();}, 5000);        
         }
     }
     
