@@ -59,7 +59,7 @@
     }
     
     function notify(msg){
-        $("#notificator").html(msg);
+        $("#notificator").html(msg).show().hide("slow");
     }
     
     // 
