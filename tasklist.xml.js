@@ -21,12 +21,10 @@
     
     function modifyList(modifier, arg){
         var tasks = $state("tasks");
-            //wave.getState().get("tasks", '{}');
         tasks = (tasks && $.json.parse(tasks)) || {};
         tasks = modifier(tasks, arg);
         tasks = $.json.stringify(tasks);
         $state({"tasks": tasks});
-        //wave.getState().submitDelta({"tasks": tasks});
     }
     
     function addTask(tasks, task){
@@ -52,7 +50,7 @@
     
     // make the list way into the DOM
     function domifyList(){
-        current = wave.getState().get("tasks", '{a:1}');
+        current = $state("tasks");
         current = (current && $.json.parse(current));
         
         // clean tasks from dom
@@ -73,11 +71,16 @@
                 "</div>"
             );
         });
+        
+        var msg = $state("notify");
+        if (msg){
+            $("#notificator").html(msg).show();
+            setTimeout(function(){$("#notificator").hide()}, 3000);        
+        }
     }
     
     function notify(msg){
-        $("#notificator").html(msg).show();
-        setTimeout(function(){$("#notificator").hide()}, 3000);
+        $state({"notify": msg});
     }
     
     // 
