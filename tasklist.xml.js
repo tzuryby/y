@@ -67,7 +67,7 @@
             
             // task exists
             if (domTask.length){
-                domTask = domTask[0];                
+                domTask = $(domTask[0]);                
                 // check if task share same atrributes, leave it.
                 var domTitle = domTask.children("input.taskInput").val(),
                     domDone = domTask.children("input:checkbox").val();
