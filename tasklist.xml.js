@@ -139,7 +139,7 @@
         var msg = $state("notify");
         if (msg){
             $("#notificator").html(msg).show();
-            setTimeout(function(){$("#notificator").hide();}, 5000);        
+            setTimeout(function(){$("#notificator").hide();}, 3000);        
         }
     }
     
