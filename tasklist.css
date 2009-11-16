@@ -20,6 +20,6 @@
 	}
 
 
-.deleteTask { 
+a.deleteTask,  .deleteTask > img{ 
 	border: 0px;
 	}
