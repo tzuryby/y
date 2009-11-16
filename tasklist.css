@@ -8,7 +8,7 @@
 
 .doneTask , .doneTask > input[type=textbox]{
 	text-decoration:line-through;
-	color: grey;
+	color: #CBCBCB;
 }
 
 .taskInput {
