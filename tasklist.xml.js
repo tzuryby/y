@@ -59,7 +59,8 @@
     }
     
     function notify(msg){
-        $("#notificator").html(msg).show().hide("slow");
+        $("#notificator").html(msg).show();
+        setTimeout(function(){$("#notificator").hide("slow")}, 3000);
     }
     
     // 
@@ -68,6 +69,7 @@
         
         $(document).ready(function() {
             wave.setStateCallback(domifyList);
+            $("#notificator").hide();
         });
         
         $("#newTaskLink").click(function(){
