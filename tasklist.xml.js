@@ -47,7 +47,7 @@
                         ((this.done) ? " checked='checked' " : "") + " />" +
                     "<input type='text' value='" + 
                         this.title + "' class='taskInput' />" +
-                    "<a class='deleteTask' href='#' title='del' alt='del'>" +
+                    "<a class='deleteTask' href='#' title='delete task' alt='delete task'>" +
                      "<img src='http://github.com/tzuryby/y/raw/master/static/media/del.png' /></a>" + 
                "</div>"
             );
