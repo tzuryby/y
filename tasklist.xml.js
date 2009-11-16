@@ -84,7 +84,7 @@
             modifyList(delTask,taskId);        
         });
         
-        $(".taskCheckBox").live("change", function(){
+        $(".taskInput").live("change", function(){
             var parent = $(this).parent();
             var taskId = parent.attr("taskId"),
                 title = $(this).val(),
