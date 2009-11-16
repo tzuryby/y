@@ -13,12 +13,11 @@
         <div id="tasklist">
         
         </div>
-                <div id="notificator">&nbsp;</div>
-
         <div id="newTask">
             <hr/>
             <input type="text" id="newTaskText" /> <a href="#" id="newTaskLink">add</a>
         </div>
+        <div id="notificator">&nbsp;</div>        
         ]]>
     </Content>
 </Module>
