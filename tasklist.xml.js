@@ -30,7 +30,7 @@
     function toggleDone(tasks, taskId){
         tasks[taskId].done = !tasks[taskId].done;
         var msg = (tasks[taskId].done) ?  
-            "you are finally done with that " + tasks[taskId].title " thing." :
+            "you are finally done with that " + tasks[taskId].title + " thing." :
             "you are not yet done with it!";
         notify(msg);
         return tasks;
