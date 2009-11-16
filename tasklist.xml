@@ -17,7 +17,7 @@
             <hr/>
             <input type="text" id="newTaskText" /> <a href="#" id="newTaskLink">add</a>
         </div>
-        <div id="notificator"></div>
+        <div id="notificator">&nbsp;</div>
         ]]>
     </Content>
 </Module>
