@@ -6,7 +6,9 @@
 #notificator {
 	font-family: monospace;
 	font-weight: 700;
-	background-color:#F0E97C;	
+	background-color:#F0E97C;
+	height:24px;
+	
 }
 .task {
 	border-bottom: 1px dotted grey;
