@@ -43,13 +43,12 @@
             $("#tasklist").append(
                 "<div taskId='" + this.id + "'" +  
                     "class='task" + ((this.done) ? " doneTask' " : "'" ) + ">" + 
+                    "<a class='deleteTask' href='#'>del</a>" + 
                     "<input class='taskCheckBox' type='checkbox'" + 
                         ((this.done) ? " checked='checked' " : "") + " />" +
                     "<input type='text' value='" + 
                         this.title + "' class='taskInput' />" +
-                    "<a class='deleteTask' href='#' title='delete task' alt='delete task'>" +
-                     "<img src='http://github.com/tzuryby/y/raw/master/static/media/del.png' /></a>" + 
-               "</div>"
+                "</div>"
             );
         });
     }
@@ -80,9 +79,17 @@
         $(".deleteTask").live("click", function(){
             var parent = $(this).parent();
             var taskId = parent.attr("taskId");
-            if (confirm("are you sure?")){
-                modifyList(delTask,taskId);
-            }
+            modifyList(delTask,taskId);        
+        });
+        
+        $(".taskCheckBox").live("change", function(){
+            var parent = $(this).parent();
+            var taskId = parent.attr("taskId"),
+                title = $(this).val(),
+                done = parent.children("input:checkbox").attr("checked");
+            var task = {title: title, id: taskId, done: done};
+            modifyList(addTask,task);
+        
         });
     }
     
