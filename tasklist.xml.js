@@ -43,13 +43,13 @@
             $("#tasklist").append(
                 "<div taskId='" + this.id + "'" +  
                     "class='task" + ((this.done) ? " doneTask' " : "'" ) + ">" + 
-                    "<a class='deleteTask' href='#' title='del' alt='del'>" +
-                    "<img src='http://github.com/tzuryby/y/raw/master/static/media/del.png' /></a>" + 
                     "<input class='taskCheckBox' type='checkbox'" + 
                         ((this.done) ? " checked='checked' " : "") + " />" +
                     "<input type='text' value='" + 
                         this.title + "' class='taskInput' />" +
-                "</div>"
+                    "<a class='deleteTask' href='#' title='del' alt='del'>" +
+                     "<img src='http://github.com/tzuryby/y/raw/master/static/media/del.png' /></a>" + 
+               "</div>"
             );
         });
     }
