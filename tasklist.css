@@ -8,7 +8,8 @@
 	font-weight: 700;
 	background-color:#F0E97C;
 	height:24px;
-	
+	padding:4px;
+	margin-bottom: 10px;
 }
 .task {
 	border-bottom: 1px dotted grey;
