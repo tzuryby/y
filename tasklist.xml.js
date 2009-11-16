@@ -71,7 +71,7 @@
                         " alt='delete task' title='delete task' /></a>" +                         
                     "</div>"
                 );   
-        }                
+        });              
         
         //~ // iter through the wave's tasks and update DOM accordinglly.
         //~ $.each(current, function(){
