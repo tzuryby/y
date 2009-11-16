@@ -2,6 +2,12 @@
 	overflow: auto;
 	height: 400px;
 	}
+	
+#notificator {
+	font-family: monospace;
+	font-weight: 700;
+	background-color:#F0E97C;	
+}
 .task {
 	border-bottom: 1px dotted grey;
 	}

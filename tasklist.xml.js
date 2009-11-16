@@ -17,16 +17,19 @@
     
     function addTask(tasks, task){
         tasks[task.id] = task;
+        notify("update task: " + task.title);
         return tasks;
     }
     
     function delTask(tasks, taskId){
         delete tasks[taskId];
+        notify("task#" + taskId + " deleted");
         return tasks;    
     }
     
     function toggleDone(tasks, taskId){
         tasks[taskId].done = !tasks[taskId].done;
+        notify("task#" + taskId + " marked as " + (tasks[taskId].done ? "done" : "not done"));
         return tasks;
     }
     
@@ -53,6 +56,10 @@
                 "</div>"
             );
         });
+    }
+    
+    function notify(msg){
+        $("#notificator").html(msg);
     }
     
     // 
@@ -93,6 +100,7 @@
             modifyList(addTask,task);
         
         });
+        
     }
     
     gadgets.util.registerOnLoadHandler(init);
