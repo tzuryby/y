@@ -7,12 +7,26 @@
     // generate randomized 5 bytes string. *not* to be use in real world app.
     function fakeuuid(){return [randomchar(), randomchar(), randomchar(), randomchar(), randomchar()].join("");}
     
+    function $state(arg){
+        argtype = typeof arg;
+        switch (argtype){
+            // get
+            case "string":
+                return wave.getState().get(arg, '{}');
+            //set
+            case "object":
+                wave.getState().submitDelta(arg);
+        }
+    }
+    
     function modifyList(modifier, arg){
-        var tasks = wave.getState().get("tasks", '{}');
+        var tasks = $state("tasks");
+            //wave.getState().get("tasks", '{}');
         tasks = (tasks && $.json.parse(tasks)) || {};
         tasks = modifier(tasks, arg);
         tasks = $.json.stringify(tasks);
-        wave.getState().submitDelta({"tasks": tasks});
+        $state({"tasks": tasks});
+        //wave.getState().submitDelta({"tasks": tasks});
     }
     
     function addTask(tasks, task){
