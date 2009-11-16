@@ -139,7 +139,7 @@
         var msg = $state("notify");
         if (msg){
             $("#notificator").html(msg).slideDown("slow");
-            setTimeout(function(){$("#notificator").slideUp("slow");}, 3000);        
+            setTimeout(function(){$("#notificator").slideUp("slow");}, 5000);        
         }
     }
     
