@@ -80,7 +80,9 @@
         $(".deleteTask").live("click", function(){
             var parent = $(this).parent();
             var taskId = parent.attr("taskId");
-            modifyList(delTask,taskId);        
+            if (confirm("are you sure?")){
+                modifyList(delTask,taskId);
+            }
         });
     }
     
