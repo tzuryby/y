@@ -9,6 +9,7 @@
         <script src="http://github.com/tzuryby/y/raw/master/jquery.json.js" type='text/javascript'  charset="utf-8"></script>
         <script src="http://github.com/tzuryby/y/raw/master/tasklist.xml.js" type='text/javascript'  charset="utf-8"></script>
         <link type="text/css" rel="stylesheet" href="http://github.com/tzuryby/y/raw/master/tasklist.css" />
+        <input type="button" id="popup" value="create popup" />
         
         <div id="tasklist"></div>
         <div id="newTask">
@@ -16,7 +17,6 @@
             <input type="text" id="newTaskText" /> <a href="#" id="newTaskLink">add</a>
         </div>
         <div id="notificator">&nbsp;</div>        
-        <input type="button" id="popup" value="create popup" />
         ]]>
     </Content>
 </Module>
