@@ -3,10 +3,9 @@
         window.console = {log: function(){}};
     }
     
-    
-    function __get__(k){
-        return eval('(' + wave.getState().get(k) + ')');
-    }
+    //~ function __get__(k){
+        //~ return eval('(' + wave.getState().get(k) + ')');
+    //~ }
     
     var randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
     function randomchar (){return randomchars[Math.round(Math.random() * randomchars.length-1)]; }   
@@ -29,9 +28,9 @@
     }
     
     function modifyList(modifier, arg){
-        //~ var tasks = $state("tasks");
-        //~ tasks = (tasks && $.json.parse(tasks)) || {};
-        var tasks = __get__("tasks");
+        var tasks = $state("tasks");
+        tasks = (tasks && $.json.parse(tasks)) || {};
+        //~ var tasks = __get__("tasks");
         tasks = modifier(tasks, arg);
         tasks = $.json.stringify(tasks);
         $state({"tasks": tasks});
@@ -88,7 +87,6 @@
             $("#notificator").html(msg).show();
             setTimeout(function(){
                 $("#notificator").hide(); 
-                $state({"notify": ''});
             }, 3000);
         }
     }
