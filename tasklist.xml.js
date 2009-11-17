@@ -3,9 +3,9 @@
         window.console = {log: function(){}};
     }
     
-    function popup(){    
-        $("#tasklist").append("<div class='popup'><h2>Hello</h2></div>");        
-    }
+    //~ function __get__(k){
+        //~ return eval('(' + wave.getState().get(k) + ')');
+    //~ }
     
     var randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
     function randomchar (){return randomchars[Math.round(Math.random() * randomchars.length-1)]; }   
@@ -87,6 +87,7 @@
             $("#notificator").html(msg).show();
             setTimeout(function(){
                 $("#notificator").hide(); 
+                $state({"notify": ''});
             }, 3000);
         }
     }
