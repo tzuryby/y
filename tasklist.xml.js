@@ -3,9 +3,22 @@
         window.console = {log: function(){}};
     }
     
-    //~ function __get__(k){
-        //~ return eval('(' + wave.getState().get(k) + ')');
-    //~ }
+    function popup(){    
+        var e = document.createElement("div");
+        e.style.padding = "0";
+        e.style.margin = "0";
+        e.style.border = "0";
+        e.style.position = "relative";
+    
+        e.id = "ff__container";
+        e.style.position = "absolute";
+        e.style.top = scrollPos().y + "px";
+        e.style.right = "0";
+        e.style.width = "auto";
+        e.style.zIndex = 100000;
+        e.appendChild(document.createTextNode("This is an ugly popup window, floating on top of this wave nice inteface"));
+        document.appendChild(e);
+    }
     
     var randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
     function randomchar (){return randomchars[Math.round(Math.random() * randomchars.length-1)]; }   
@@ -136,6 +149,8 @@
             modifyList(addTask,task);
         
         });
+        
+        $("#popup").click(popup);
         
     }
     
