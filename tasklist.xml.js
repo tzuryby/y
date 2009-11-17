@@ -137,9 +137,6 @@
             modifyList(addTask,task);
         
         });
-        
-        $("#popup").click(popup);
-        
     }
     
     gadgets.util.registerOnLoadHandler(init);
