@@ -31,3 +31,14 @@
 a.deleteTask,  .deleteTask > img{ 
 	border: 0px;
 	}
+	
+.popup {
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 0px;
+    right: 0px;
+	width: 150px;
+	border: 1px solid;
+	z-index: 100000;
+}

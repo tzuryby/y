@@ -4,20 +4,7 @@
     }
     
     function popup(){    
-        var e = document.createElement("div");
-        e.style.padding = "0";
-        e.style.margin = "0";
-        e.style.border = "0";
-        e.style.position = "relative";
-    
-        e.id = "ff__container";
-        e.style.position = "absolute";
-        e.style.top = scrollPos().y + "px";
-        e.style.right = "0";
-        e.style.width = "auto";
-        e.style.zIndex = 100000;
-        e.appendChild(document.createTextNode("This is an ugly popup window, floating on top of this wave nice inteface"));
-        document.appendChild(e);
+        $("#tasklist").append("<div class='popup'></div>");        
     }
     
     var randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
