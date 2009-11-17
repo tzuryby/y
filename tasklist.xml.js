@@ -4,7 +4,7 @@
     }
     
     function popup(){    
-        $("#tasklist").append("<div class='popup'></div>");        
+        $("#tasklist").append("<div class='popup'><h2>Hello</h2></div>");        
     }
     
     var randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
