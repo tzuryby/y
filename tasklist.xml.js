@@ -15,7 +15,8 @@
     // shorthand to the wave's state. getter and setter as one.
     // passing a string - means get value of keys
     // passing an object - means submit delta
-    function $state(arg, wrapper=function(a){return a}){
+    function $state(arg, wrapper){
+        wrapper = wrapper || function(a){return a};
         argtype = typeof arg;
         switch (argtype){
             // get
