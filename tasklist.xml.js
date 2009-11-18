@@ -9,18 +9,18 @@
     
     var randomchars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split("");
     function randomchar (){return randomchars[Math.round(Math.random() * randomchars.length-1)]; }   
-    // generate randomized 5 bytes string. *not* to be use in real world app.
-    function fakeuuid(){return [randomchar(), randomchar(), randomchar(), randomchar(), randomchar()].join("");}
+    // generate randomized 4 bytes string. *not* to be use in real world app.
+    function fakeuuid(){return [randomchar(), randomchar(), randomchar(), randomchar()].join("");}
     
     // shorthand to the wave's state. getter and setter as one.
     // passing a string - means get value of keys
     // passing an object - means submit delta
-    function $state(arg){
+    function $state(arg, wrapper=function(a){return a}){
         argtype = typeof arg;
         switch (argtype){
             // get
             case "string":
-                return wave.getState().get(arg, '{}');
+                return wrapper(wave.getState().get(arg, '{}'));
             //set
             case "object":
                 wave.getState().submitDelta(arg);
