@@ -15,13 +15,12 @@
     // shorthand to the wave's state. getter and setter as one.
     // passing a string - means get value of keys
     // passing an object - means submit delta
-    function $state(arg, wrapper){
-        wrapper = wrapper || function(a){return $.json.parse(a)};
+    function $state(arg){
         argtype = typeof arg;
         switch (argtype){
             // get
             case "string":
-                return wrapper(wave.getState().get(arg, '{}'));
+                return wave.getState().get(arg, '{}');
             //set
             case "object":
                 wave.getState().submitDelta(arg);
@@ -30,7 +29,7 @@
     
     function modifyList(modifier, arg){
         var tasks = $state("tasks");
-        // tasks = (tasks && $.json.parse(tasks)) || {};
+        tasks = (tasks && $.json.parse(tasks)) || {};
         //~ var tasks = __get__("tasks");
         tasks = modifier(tasks, arg);
         tasks = $.json.stringify(tasks);
@@ -83,7 +82,7 @@
         });
         
         var msg = $state("notify");
-        
+        msg = (msg && $.json.parse(msg)) || {};
         if (msg){
             $("#notificator").html(msg).show();
             setTimeout(function(){
