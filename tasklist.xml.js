@@ -16,7 +16,7 @@
     // passing a string - means get value of keys
     // passing an object - means submit delta
     function $state(arg, wrapper){
-        wrapper = wrapper || function(a){return a};
+        wrapper = wrapper || function(a){return $.json.parse(a)};
         argtype = typeof arg;
         switch (argtype){
             // get
@@ -30,7 +30,7 @@
     
     function modifyList(modifier, arg){
         var tasks = $state("tasks");
-        tasks = (tasks && $.json.parse(tasks)) || {};
+        // tasks = (tasks && $.json.parse(tasks)) || {};
         //~ var tasks = __get__("tasks");
         tasks = modifier(tasks, arg);
         tasks = $.json.stringify(tasks);
